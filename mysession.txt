@@ -1,1398 +1,0 @@
-Script started on 2023-02-10 15:09:20-05:00 [TERM="xterm-256color" TTY="/dev/pts/0" COLUMNS="100" LINES="63"]
-[?2004h]0;aka271@aka271: ~/CS270/Lab2/bufdemo[01;32maka271@aka271[00m:[01;34m~/CS270/Lab2/bufdemo[00m$ cat bu[K[K[K[K[K[Kcat > /dev/null
-[?2004l1234
-[?2004h]0;aka271@aka271: ~/CS270/Lab2/bufdemo[01;32maka271@aka271[00m:[01;34m~/CS270/Lab2/bufdemo[00m$ make asm
-[?2004lobjdump -d bufdemo > bufdemo.s
-[?2004h]0;aka271@aka271: ~/CS270/Lab2/bufdemo[01;32maka271@aka271[00m:[01;34m~/CS270/Lab2/bufdemo[00m$ more bufdemo.s
-[?2004l
-bufdemo:     file format elf64-x86-64
-
-
-Disassembly of section .init:
-
-0000000000001000 <_init>:
-    1000:	f3 0f 1e fa          	endbr64 
-    1004:	48 83 ec 08          	sub    $0x8,%rsp
-    1008:	48 8b 05 d9 2f 00 00 	mov    0x2fd9(%rip),%rax        # 3fe8 <__gmon_start__@Base>
-    100f:	48 85 c0             	test   %rax,%rax
-    1012:	74 02                	je     1016 <_init+0x16>
-    1014:	ff d0                	call   *%rax
-    1016:	48 83 c4 08          	add    $0x8,%rsp
-    101a:	c3                   	ret    
-
-Disassembly of section .plt:
-
-0000000000001020 <.plt>:
-    1020:	ff 35 92 2f 00 00    	push   0x2f92(%rip)        # 3fb8 <_GLOBAL_OFFSET_TABLE_+0x8
->
-    1026:	f2 ff 25 93 2f 00 00 	bnd jmp *0x2f93(%rip)        # 3fc0 <_GLOBAL_OFFSET_TABLE_+0
-x10>
-    102d:	0f 1f 00             	nopl   (%rax)
-    1030:	f3 0f 1e fa          	endbr64 
-    1034:	68 00 00 00 00       	push   $0x0
-    1039:	f2 e9 e1 ff ff ff    	bnd jmp 1020 <_init+0x20>
-    103f:	90                   	nop
-    1040:	f3 0f 1e fa          	endbr64 
-    1044:	68 01 00 00 00       	push   $0x1
-    1049:	f2 e9 d1 ff ff ff    	bnd jmp 1020 <_init+0x20>
-    104f:	90                   	nop
-
-Disassembly of section .plt.got:
-
-0000000000001050 <__cxa_finalize@plt>:
-    1050:	f3 0f 1e fa          	endbr64 
-    1054:	f2 ff 25 9d 2f 00 00 	bnd jmp *0x2f9d(%rip)        # 3ff8 <__cxa_finalize@GLIBC_2.
-2.5>
-    105b:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
-
-Disassembly of section .plt.sec:
-
-0000000000001060 <printf@plt>:
-    1060:	f3 0f 1e fa          	endbr64 
-    1064:	f2 ff 25 5d 2f 00 00 	bnd jmp *0x2f5d(%rip)        # 3fc8 <printf@GLIBC_2.2.5>
-    106b:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
-
-0000000000001070 <gets@plt>:
-    1070:	f3 0f 1e fa          	endbr64 
-    1074:	f2 ff 25 55 2f 00 00 	bnd jmp *0x2f55(%rip)        # 3fd0 <gets@GLIBC_2.2.5>
-    107b:	0f 1f 44 00 00       	nopl   0x0(%rax,%rax,1)
-
-Disassembly of section .text:
-
-0000000000001080 <_start>:
-    1080:	f3 0f 1e fa          	endbr64 
-    1084:	31 ed                	xor    %ebp,%ebp
-    1086:	49 89 d1             	mov    %rdx,%r9
-    1089:	5e                   	pop    %rsi
-    108a:	48 89 e2             	mov    %rsp,%rdx
-    108d:	48 83 e4 f0          	and    $0xfffffffffffffff0,%rsp
-[7m--More--(30%)[27m[K    1091:	50                   	push   %rax
-[7m--More--(30%)[27m[K    1092:	54                   	push   %rsp
-    1093:	45 31 c0             	xor    %r8d,%r8d
-    1096:	31 c9                	xor    %ecx,%ecx
-    1098:	48 8d 3d 0d 01 00 00 	lea    0x10d(%rip),%rdi        # 11ac <main>
-    109f:	ff 15 33 2f 00 00    	call   *0x2f33(%rip)        # 3fd8 <__libc_start_main@GLIBC_
-2.34>
-    10a5:	f4                   	hlt    
-    10a6:	66 2e 0f 1f 84 00 00 	cs nopw 0x0(%rax,%rax,1)
-    10ad:	00 00 00 
-
-00000000000010b0 <deregister_tm_clones>:
-    10b0:	48 8d 3d 59 2f 00 00 	lea    0x2f59(%rip),%rdi        # 4010 <__TMC_END__>
-    10b7:	48 8d 05 52 2f 00 00 	lea    0x2f52(%rip),%rax        # 4010 <__TMC_END__>
-    10be:	48 39 f8             	cmp    %rdi,%rax
-    10c1:	74 15                	je     10d8 <deregister_tm_clones+0x28>
-    10c3:	48 8b 05 16 2f 00 00 	mov    0x2f16(%rip),%rax        # 3fe0 <_ITM_deregisterTMClo
-neTable@Base>
-    10ca:	48 85 c0             	test   %rax,%rax
-    10cd:	74 09                	je     10d8 <deregister_tm_clones+0x28>
-    10cf:	ff e0                	jmp    *%rax
-    10d1:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
-    10d8:	c3                   	ret    
-    10d9:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
-
-00000000000010e0 <register_tm_clones>:
-    10e0:	48 8d 3d 29 2f 00 00 	lea    0x2f29(%rip),%rdi        # 4010 <__TMC_END__>
-    10e7:	48 8d 35 22 2f 00 00 	lea    0x2f22(%rip),%rsi        # 4010 <__TMC_END__>
-    10ee:	48 29 fe             	sub    %rdi,%rsi
-    10f1:	48 89 f0             	mov    %rsi,%rax
-    10f4:	48 c1 ee 3f          	shr    $0x3f,%rsi
-    10f8:	48 c1 f8 03          	sar    $0x3,%rax
-    10fc:	48 01 c6             	add    %rax,%rsi
-    10ff:	48 d1 fe             	sar    %rsi
-    1102:	74 14                	je     1118 <register_tm_clones+0x38>
-    1104:	48 8b 05 e5 2e 00 00 	mov    0x2ee5(%rip),%rax        # 3ff0 <_ITM_registerTMClone
-Table@Base>
-    110b:	48 85 c0             	test   %rax,%rax
-    110e:	74 08                	je     1118 <register_tm_clones+0x38>
-    1110:	ff e0                	jmp    *%rax
-    1112:	66 0f 1f 44 00 00    	nopw   0x0(%rax,%rax,1)
-    1118:	c3                   	ret    
-    1119:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
-
-0000000000001120 <__do_global_dtors_aux>:
-    1120:	f3 0f 1e fa          	endbr64 
-    1124:	80 3d e5 2e 00 00 00 	cmpb   $0x0,0x2ee5(%rip)        # 4010 <__TMC_END__>
-    112b:	75 2b                	jne    1158 <__do_global_dtors_aux+0x38>
-    112d:	55                   	push   %rbp
-    112e:	48 83 3d c2 2e 00 00 	cmpq   $0x0,0x2ec2(%rip)        # 3ff8 <__cxa_finalize@GLIBC
-_2.2.5>
-    1135:	00 
-    1136:	48 89 e5             	mov    %rsp,%rbp
-    1139:	74 0c                	je     1147 <__do_global_dtors_aux+0x27>
-    113b:	48 8b 3d c6 2e 00 00 	mov    0x2ec6(%rip),%rdi        # 4008 <__dso_handle>
-    1142:	e8 09 ff ff ff       	call   1050 <__cxa_finalize@plt>
-    1147:	e8 64 ff ff ff       	call   10b0 <deregister_tm_clones>
-    114c:	c6 05 bd 2e 00 00 01 	movb   $0x1,0x2ebd(%rip)        # 4010 <__TMC_END__>
-    1153:	5d                   	pop    %rbp
-    1154:	c3                   	ret    
-    1155:	0f 1f 00             	nopl   (%rax)
-    1158:	c3                   	ret    
-    1159:	0f 1f 80 00 00 00 00 	nopl   0x0(%rax)
-[7m--More--(73%)[27m[K
-0000000000001160 <frame_dummy>:
-    1160:	f3 0f 1e fa          	endbr64 
-    1164:	e9 77 ff ff ff       	jmp    10e0 <register_tm_clones>
-
-0000000000001169 <echo>:
-    1169:	f3 0f 1e fa          	endbr64 
-    116d:	55                   	push   %rbp
-    116e:	48 89 e5             	mov    %rsp,%rbp
-    1171:	48 83 ec 10          	sub    $0x10,%rsp
-    1175:	c6 45 fc 00          	movb   $0x0,-0x4(%rbp)
-    1179:	48 8d 45 f8          	lea    -0x8(%rbp),%rax
-    117d:	48 89 c7             	mov    %rax,%rdi
-    1180:	b8 00 00 00 00       	mov    $0x0,%eax
-    1185:	e8 e6 fe ff ff       	call   1070 <gets@plt>
-    118a:	48 8d 55 f8          	lea    -0x8(%rbp),%rdx
-    118e:	48 8d 45 fc          	lea    -0x4(%rbp),%rax
-    1192:	48 89 c6             	mov    %rax,%rsi
-    1195:	48 8d 05 68 0e 00 00 	lea    0xe68(%rip),%rax        # 2004 <_IO_stdin_used+0x4>
-    119c:	48 89 c7             	mov    %rax,%rdi
-    119f:	b8 00 00 00 00       	mov    $0x0,%eax
-    11a4:	e8 b7 fe ff ff       	call   1060 <printf@plt>
-    11a9:	90                   	nop
-    11aa:	c9                   	leave  
-    11ab:	c3                   	ret    
-
-00000000000011ac <main>:
-    11ac:	f3 0f 1e fa          	endbr64 
-    11b0:	55                   	push   %rbp
-    11b1:	48 89 e5             	mov    %rsp,%rbp
-    11b4:	48 8d 05 64 0e 00 00 	lea    0xe64(%rip),%rax        # 201f <_IO_stdin_used+0x1f>
-    11bb:	48 89 c7             	mov    %rax,%rdi
-    11be:	b8 00 00 00 00       	mov    $0x0,%eax
-    11c3:	e8 98 fe ff ff       	call   1060 <printf@plt>
-    11c8:	b8 00 00 00 00       	mov    $0x0,%eax
-    11cd:	e8 97 ff ff ff       	call   1169 <echo>
-    11d2:	b8 00 00 00 00       	mov    $0x0,%eax
-    11d7:	5d                   	pop    %rbp
-    11d8:	c3                   	ret    
-
-Disassembly of section .fini:
-
-00000000000011dc <_fini>:
-    11dc:	f3 0f 1e fa          	endbr64 
-    11e0:	48 83 ec 08          	sub    $0x8,%rsp
-    11e4:	48 83 c4 08          	add    $0x8,%rsp
-    11e8:	c3                   	ret    
-[?2004h]0;aka271@aka271: ~/CS270/Lab2/bufdemo[01;32maka271@aka271[00m:[01;34m~/CS270/Lab2/bufdemo[00m$ ./bufdemo
-[?2004lEnter a string: abcdefghijk
- Abuf = 'efghijk'
- Bbuf = 'abcdefghijk'
-[?2004h]0;aka271@aka271: ~/CS270/Lab2/bufdemo[01;32maka271@aka271[00m:[01;34m~/CS270/Lab2/bufdemo[00m$ ./bufdemo
-[?2004lEnter a string: abcdefghijklmnopqrstuvwxyz
- Abuf = 'efghijklmnopqrstuvwxyz'
- Bbuf = 'abcdefghijklmnopqrstuvwxyz'
-Segmentation fault (core dumped)
-[?2004h]0;aka271@aka271: ~/CS270/Lab2/bufdemo[01;32maka271@aka271[00m:[01;34m~/CS270/Lab2/bufdemo[00m$ gdb bufdemo[K[K[K[K[K[K[Kbufdemo
-[?2004l[35;1mGNU gdb (Ubuntu 12.1-0ubuntu1~22.04) 12.1[m
-Copyright (C) 2022 Free Software Foundation, Inc.
-License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
-This is free software: you are free to change and redistribute it.
-There is NO WARRANTY, to the extent permitted by law.
-Type "show copying" and "show warranty" for details.
-This GDB was configured as "x86_64-linux-gnu".
-Type "show configuration" for configuration details.
-For bug reporting instructions, please see:
-<https://www.gnu.org/software/gdb/bugs/>.
-Find the GDB manual and other documentation resources online at:
-    <http://www.gnu.org/software/gdb/documentation/>.
-
-For help, type "help".
-Type "apropos word" to search for commands related to "word"...
-Reading symbols from [32mbufdemo[m...
-[?2004h(gdb) break 14
-[?2004lBreakpoint 1 at [34m0x11a9[m: file [32mbufdemo.c[m, line 14.
-[?2004h(gdb) list echo
-[?2004l3	[01;34m#include[m [31m<string.h>[m
-4	
-5	[01;34m#define[m BUFLEN [35m4[m
-6	
-7	[36m/* Set Abuf to be empty.  Read string into Bbuf. Print out Abuf and Bbuf */[m
-8	[32mvoid[m [01mecho[m[31m()[m [31m{[m
-9		[32mchar[m Abuf[31m[[mBUFLEN[31m];[m
-10		[32mchar[m Bbuf[31m[[mBUFLEN[31m];[m
-11		Abuf[31m[[m[35m0[m[31m][m [31m=[m [31m'[m[35m\0[m[31m'[m[31m;[m
-12		[01mgets[m[31m([mBbuf[31m);[m
-[?2004h(gdb) 
-[?2004l13		[01mprintf[m[31m([m[31m" Abuf = '%s'[m[35m\n[m[31m Bbuf = '%s'[m[35m\n[m[31m"[m[31m,[m Abuf[31m,[m Bbuf[31m);[m
-14	[31m}[m [36m// echo()[m
-15	
-16	[32mint[m [01mmain[m[31m()[m [31m{[m
-17		[01mprintf[m[31m([m[31m"Enter a string: "[m[31m);[m
-18		[01mecho[m[31m();[m
-19		[01;34mreturn[m[31m([m[35m0[m[31m);[m
-20	[31m}[m [36m// main()[m
-[?2004h(gdb) run
-[?2004lStarting program: [32m/home/aka271/CS270/Lab2/bufdemo/bufdemo[m 
-[Thread debugging using libthread_db enabled]
-Using host libthread_db library "[32m/lib/x86_64-linux-gnu/libthread_db.so.1[m".
-Enter a string: abcdefghijklmnopqrstuvwxyzabcdeg fghijklmnopqrst
- Abuf = 'efghijklmnopqrstuvwxyzabcdefghijklmnopqrst'
- Bbuf = 'abcdefghijklmnopqrstuvwxyzabcdefghijklmnopqrst'
-
-Breakpoint 1, [33mecho[m () at [32mbufdemo.c[m:14
-14	[31m}[m [36m// echo()[m
-[?2004h[?2004l[?2004h(gdb) display /5i $pc
-[?2004l1: x/5i $pc
-=> [34m0x5555555551a9[m <[33mecho[m+64>:	[32mnop[39;49;00m[37m[39;49;00m
-   [34m0x5555555551aa[m <[33mecho[m+65>:	[32mleave[39;49;00m[37m  [39;49;00m
-   [34m0x5555555551ab[m <[33mecho[m+66>:	[32mret[39;49;00m[37m    [39;49;00m
-   [34m0x5555555551ac[m <[33mmain[m>:	[32mendbr64[39;49;00m[37m [39;49;00m
-   [34m0x5555555551b0[m <[33mmain[m+4>:	[32mpush[39;49;00m[37m   [39;49;00m[31m%rbp[39;49;00m[37m[39;49;00m
-[?2004h(gdb) step i
-[?2004lNo symbol "i" in current context.
-[?2004h(gdb) stepi
-[?2004l[34m0x00005555555551aa[m	14	[31m}[m [36m// echo()[m
-1: x/5i $pc
-=> [34m0x5555555551aa[m <[33mecho[m+65>:	[32mleave[39;49;00m[37m  [39;49;00m
-   [34m0x5555555551ab[m <[33mecho[m+66>:	[32mret[39;49;00m[37m    [39;49;00m
-   [34m0x5555555551ac[m <[33mmain[m>:	[32mendbr64[39;49;00m[37m [39;49;00m
-   [34m0x5555555551b0[m <[33mmain[m+4>:	[32mpush[39;49;00m[37m   [39;49;00m[31m%rbp[39;49;00m[37m[39;49;00m
-   [34m0x5555555551b1[m <[33mmain[m+5>:	[32mmov[39;49;00m[37m    [39;49;00m[31m%rsp[39;49;00m,[31m%rbp[39;49;00m[37m[39;49;00m
-[?2004h[?2004l[?2004h(gdb) x\[K/x $rsp
-[?2004l[34m0x7fffffffe350[m:	0x00000000
-[?2004h(gdb) 
-[?2004l[34m0x7fffffffe354[m:	0x00000000
-[?2004h(gdb) 
-[?2004l[34m0x7fffffffe358[m:	0x64636261
-[?2004h(gdb) 
-[?2004l[34m0x7fffffffe35c[m:	0x68676665
-[?2004h(gdb) 
-[?2004l[34m0x7fffffffe360[m:	0x6c6b6a69
-[?2004h(gdb) 
-[?2004l[34m0x7fffffffe364[m:	0x706f6e6d
-[?2004h(gdb) x/5i $pc
-[?2004l=> [34m0x5555555551aa[m <[33mecho[m+65>:	[32mleave[39;49;00m[37m  [39;49;00m
-   [34m0x5555555551ab[m <[33mecho[m+66>:	[32mret[39;49;00m[37m    [39;49;00m
-   [34m0x5555555551ac[m <[33mmain[m>:	[32mendbr64[39;49;00m[37m [39;49;00m
-   [34m0x5555555551b0[m <[33mmain[m+4>:	[32mpush[39;49;00m[37m   [39;49;00m[31m%rbp[39;49;00m[37m[39;49;00m
-   [34m0x5555555551b1[m <[33mmain[m+5>:	[32mmov[39;49;00m[37m    [39;49;00m[31m%rsp[39;49;00m,[31m%rbp[39;49;00m[37m[39;49;00m
-[?2004h(gdb) x/x $rsp
-[?2004l[34m0x7fffffffe350[m:	0x00000000
-[?2004h(gdb) 
-[?2004l[34m0x7fffffffe354[m:	0x00000000
-[?2004h(gdb) 
-[?2004l[34m0x7fffffffe358[m:	0x64636261
-[?2004h(gdb) 
-[?2004l[34m0x7fffffffe35c[m:	0x68676665
-[?2004h(gdb) 
-[?2004l[34m0x7fffffffe360[m:	0x6c6b6a69
-[?2004h(gdb) 
-[?2004l[34m0x7fffffffe364[m:	0x706f6e6d
-[?2004h(gdb) 
-[?2004l[34m0x7fffffffe368[m:	0x74737271
-[?2004h(gdb) 
-[?2004l[34m0x7fffffffe36c[m:	0x78777675
-[?2004h(gdb) 
-[?2004l[34m0x7fffffffe370[m:	0x62617a79
-[?2004h(gdb) 
-[?2004l[34m0x7fffffffe374[m:	0x66656463
-[?2004h(gdb) 
-[?2004l[34m0x7fffffffe378[m:	0x6a696867
-[?2004h(gdb) 
-[?2004l[34m0x7fffffffe37c[m:	0x6e6d6c6b
-[?2004h(gdb) 
-[?2004l[34m0x7fffffffe380[m:	0x7271706f
-[?2004h(gdb) 
-[?2004l[34m0x7fffffffe384[m:	0x00007473
-[?2004h(gdb) 
-[?2004l[34m0x7fffffffe388[m:	0x555551ac
-[?2004h(gdb) 
-[?2004l[34m0x7fffffffe38c[m:	0x00005555
-[?2004h(gdb) 
-[?2004l[34m0x7fffffffe390[m:	0x00000000
-[?2004h(gdb) x/4c $rsp
-[?2004l[34m0x7fffffffe350[m:	0 '\000'	0 '\000'	0 '\000'	0 '\000'
-[?2004h(gdb) where
-[?2004l#0  [34m0x00005555555551aa[m in [33mecho[m () at [32mbufdemo.c[m:14
-#1  [34m0x7877767574737271[m in [33m??[m ()
-#2  [34m0x6665646362617a79[m in [33m??[m ()
-#3  [34m0x6e6d6c6b6a696867[m in [33m??[m ()
-#4  [34m0x000074737271706f[m in [33m??[m ()
-#5  [34m0x00005555555551ac[m in [33mecho[m () at [32mbufdemo.c[m:14
-#6  [34m0x0000000100000000[m in [33m??[m ()
-#7  [34m0x00007fffffffe488[m in [33m??[m ()
-#8  [34m0x0000000000000000[m in [33m??[m ()
-[?2004h(gdb) display /5[K[K[K/5i $pc
-[?2004l2: x/5i $pc
-=> [34m0x5555555551aa[m <[33mecho[m+65>:	[32mleave[39;49;00m[37m  [39;49;00m
-   [34m0x5555555551ab[m <[33mecho[m+66>:	[32mret[39;49;00m[37m    [39;49;00m
-   [34m0x5555555551ac[m <[33mmain[m>:	[32mendbr64[39;49;00m[37m [39;49;00m
-   [34m0x5555555551b0[m <[33mmain[m+4>:	[32mpush[39;49;00m[37m   [39;49;00m[31m%rbp[39;49;00m[37m[39;49;00m
-   [34m0x5555555551b1[m <[33mmain[m+5>:	[32mmov[39;49;00m[37m    [39;49;00m[31m%rsp[39;49;00m,[31m%rbp[39;49;00m[37m[39;49;00m
-[?2004h(gdb) stepi
-[?2004l[34m0x00005555555551ab[m	14	[31m}[m [36m// echo()[m
-1: x/5i $pc
-=> [34m0x5555555551ab[m <[33mecho[m+66>:	[32mret[39;49;00m[37m    [39;49;00m
-   [34m0x5555555551ac[m <[33mmain[m>:	[32mendbr64[39;49;00m[37m [39;49;00m
-   [34m0x5555555551b0[m <[33mmain[m+4>:	[32mpush[39;49;00m[37m   [39;49;00m[31m%rbp[39;49;00m[37m[39;49;00m
-   [34m0x5555555551b1[m <[33mmain[m+5>:	[32mmov[39;49;00m[37m    [39;49;00m[31m%rsp[39;49;00m,[31m%rbp[39;49;00m[37m[39;49;00m
-   [34m0x5555555551b4[m <[33mmain[m+8>:	[32mlea[39;49;00m[37m    [39;49;00m[34m0xe64[39;49;00m([31m%rip[39;49;00m),[31m%rax[39;49;00m[37m        [39;49;00m[37m# 0x55555555601f[39;49;00m
-2: x/5i $pc
-=> [34m0x5555555551ab[m <[33mecho[m+66>:	[32mret[39;49;00m[37m    [39;49;00m
-   [34m0x5555555551ac[m <[33mmain[m>:	[32mendbr64[39;49;00m[37m [39;49;00m
-   [34m0x5555555551b0[m <[33mmain[m+4>:	[32mpush[39;49;00m[37m   [39;49;00m[31m%rbp[39;49;00m[37m[39;49;00m
-   [34m0x5555555551b1[m <[33mmain[m+5>:	[32mmov[39;49;00m[37m    [39;49;00m[31m%rsp[39;49;00m,[31m%rbp[39;49;00m[37m[39;49;00m
-   [34m0x5555555551b4[m <[33mmain[m+8>:	[32mlea[39;49;00m[37m    [39;49;00m[34m0xe64[39;49;00m([31m%rip[39;49;00m),[31m%rax[39;49;00m[37m        [39;49;00m[37m# 0x55555555601f[39;49;00m
-[?2004h[?2004l[?2004h(gdb) x/x $pc
-[?2004l[34m0x5555555551ab[m <[33mecho[m+66>:	0xc3
-[?2004h(gdb) x/x $rsp
-[?2004l[34m0x7fffffffe368[m:	0x71
-[?2004h(gdb) exit
-[?2004l[?2004hA debugging session is active.
-
-	Inferior 1 [process 134605] will be killed.
-
-Quit anyway? (y or n) y
-[?2004l[?2004h]0;aka271@aka271: ~/CS270/Lab2/bufdemo[01;32maka271@aka271[00m:[01;34m~/CS270/Lab2/bufdemo[00m$ less pf[K[Koflowecho[K[K[K[K_echo.c
-[?2004l[?1049h[22;0;0t[?1h=#include <stdlib.h>
-#include <stdio.h>
-
-#define BUFLEN 4 /* much too small */
-
-void echo();
-
-/* Main program */
-int main() {
-        while (1) { // keep echoing input
-                echo();
-        }
-        return(0); // never called
-} // main
-
-/* My gets, like gets: Get a string from stdin */
-char *mygets(char *dest) {
-        int c = getchar();
-        char *p = dest;
-        while (c != EOF && c != '\n') {
-                *p++ = c;
-                c = getchar();
-        }
-        *p = '\0';
-        return dest;
-} // mygets
-
-/* Echo Line */
-void echo() {
-        char buf[BUFLEN];
-        mygets(buf);
-        puts(buf);
-} // echo
-  
-void not_called() {
-        printf("This routine is never called, but you managed to call it.\n");
-        printf("Congratulations!\n");
-        exit(0);
-} // not_called
-[7moflow_echo.c (END)[27m[K[K [KESCESC[KOO[KAA[K...skipping...
-#include <stdlib.h>
-#include <stdio.h>
-
-#define BUFLEN 4 /* much too small */
-
-void echo();
-
-/* Main program */
-int main() {
-        while (1) { // keep echoing input
-                echo();
-        }
-        return(0); // never called
-} // main
-
-/* My gets, like gets: Get a string from stdin */
-char *mygets(char *dest) {
-        int c = getchar();
-        char *p = dest;
-        while (c != EOF && c != '\n') {
-                *p++ = c;
-                c = getchar();
-        }
-        *p = '\0';
-        return dest;
-} // mygets
-
-/* Echo Line */
-void echo() {
-        char buf[BUFLEN];
-        mygets(buf);
-        puts(buf);
-} // echo
-  
-void not_called() {
-        printf("This routine is never called, but you managed to call it.\n");
-        printf("Congratulations!\n");
-        exit(0);
-} // not_called
-[1m~[0m
-[1m~[0m
-[1m~[0m
-[1m~[0m
-[1m~[0m
-[1m~[0m
-[1m~[0m
-[1m~[0m
-[1m~[0m
-[1m~[0m
-[1m~[0m
-[1m~[0m
-[1m~[0m
-[1m~[0m
-[1m~[0m
-[1m~[0m
-[1m~[0m
-[1m~[0m
-[1m~[0m
-[1m~[0m
-[1m~[0m
-[1m~[0m
-[1m~[0m
-[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[K::[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KAA[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K [KESCESC[KOO[KBB[K[K[7m(END)[27m[K[K[K[7m(END)[27m[K[K[K[7m(END)[27m[K[K [K::[KWW[K[7m(END)[27m[K[K[?1l>[?1049l[23;0;0t[?2004h]0;aka271@aka271: ~/CS270/Lab2/bufdemo[01;32maka271@aka271[00m:[01;34m~/CS270/Lab2/bufdemo[00m$ make goal [K[K[K[K[KGOAL [K=oflow_echo
-[?2004lcc -Wall -g -O0 -fno-stack-protector    oflow_echo.c   -o oflow_echo
-[?2004h]0;aka271@aka271: ~/CS270/Lab2/bufdemo[01;32maka271@aka271[00m:[01;34m~/CS270/Lab2/bufdemo[00m$ gdb oflow_echo
-[?2004l[35;1mGNU gdb (Ubuntu 12.1-0ubuntu1~22.04) 12.1[m
-Copyright (C) 2022 Free Software Foundation, Inc.
-License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
-This is free software: you are free to change and redistribute it.
-There is NO WARRANTY, to the extent permitted by law.
-Type "show copying" and "show warranty" for details.
-This GDB was configured as "x86_64-linux-gnu".
-Type "show configuration" for configuration details.
-For bug reporting instructions, please see:
-<https://www.gnu.org/software/gdb/bugs/>.
-Find the GDB manual and other documentation resources online at:
-    <http://www.gnu.org/software/gdb/documentation/>.
-
-For help, type "help".
-Type "apropos word" to search for commands related to "word"...
-Reading symbols from [32moflow_echo[m...
-[?2004h(gdb) disassemnle[K[K[Kble not_called
-[?2004lDump of assembler code for function [33mnot_called[m:
-   [34m0x0000000000001218[m <+0>:	[32mendbr64[39;49;00m[37m [39;49;00m
-   [34m0x000000000000121c[m <+4>:	[32mpush[39;49;00m[37m   [39;49;00m[31m%rbp[39;49;00m[37m[39;49;00m
-   [34m0x000000000000121d[m <+5>:	[32mmov[39;49;00m[37m    [39;49;00m[31m%rsp[39;49;00m,[31m%rbp[39;49;00m[37m[39;49;00m
-   [34m0x0000000000001220[m <+8>:	[32mlea[39;49;00m[37m    [39;49;00m[34m0xde1[39;49;00m([31m%rip[39;49;00m),[31m%rax[39;49;00m[37m        [39;49;00m[37m# 0x2008[39;49;00m
-   [34m0x0000000000001227[m <+15>:	[32mmov[39;49;00m[37m    [39;49;00m[31m%rax[39;49;00m,[31m%rdi[39;49;00m[37m[39;49;00m
-   [34m0x000000000000122a[m <+18>:	[32mcall[39;49;00m[37m   [39;49;00m[34m0x1070[39;49;00m <[31mputs@plt[39;49;00m>[37m[39;49;00m
-   [34m0x000000000000122f[m <+23>:	[32mlea[39;49;00m[37m    [39;49;00m[34m0xe0c[39;49;00m([31m%rip[39;49;00m),[31m%rax[39;49;00m[37m        [39;49;00m[37m# 0x2042[39;49;00m
-   [34m0x0000000000001236[m <+30>:	[32mmov[39;49;00m[37m    [39;49;00m[31m%rax[39;49;00m,[31m%rdi[39;49;00m[37m[39;49;00m
-   [34m0x0000000000001239[m <+33>:	[32mcall[39;49;00m[37m   [39;49;00m[34m0x1070[39;49;00m <[31mputs@plt[39;49;00m>[37m[39;49;00m
-   [34m0x000000000000123e[m <+38>:	[32mmov[39;49;00m[37m    [39;49;00m[31m$0x0[39;49;00m,[31m%edi[39;49;00m[37m[39;49;00m
-   [34m0x0000000000001243[m <+43>:	[32mcall[39;49;00m[37m   [39;49;00m[34m0x1090[39;49;00m <[31mexit@plt[39;49;00m>[37m[39;49;00m
-End of assembler dump.
-[?2004h(gdb) run oflow_echo[K[K[K[K[K[K[K[K[K[K[K[K[K[Kbreak main\[K
-[?2004lBreakpoint 1 at [34m0x1191[m: file [32moflow_echo.c[m, line 11.
-[?2004h(gdb) run
-[?2004lStarting program: [32m/home/aka271/CS270/Lab2/bufdemo/oflow_echo[m 
-[Thread debugging using libthread_db enabled]
-Using host libthread_db library "[32m/lib/x86_64-linux-gnu/libthread_db.so.1[m".
-
-Breakpoint 1, [33mmain[m () at [32moflow_echo.c[m:11
-11			[01mecho[m[31m();[m
-[?2004h[?2004l[?2004h(gdb) disassemble not_called
-[?2004lDump of assembler code for function [33mnot_called[m:
-   [34m0x0000555555555218[m <+0>:	[32mendbr64[39;49;00m[37m [39;49;00m
-   [34m0x000055555555521c[m <+4>:	[32mpush[39;49;00m[37m   [39;49;00m[31m%rbp[39;49;00m[37m[39;49;00m
-   [34m0x000055555555521d[m <+5>:	[32mmov[39;49;00m[37m    [39;49;00m[31m%rsp[39;49;00m,[31m%rbp[39;49;00m[37m[39;49;00m
-   [34m0x0000555555555220[m <+8>:	[32mlea[39;49;00m[37m    [39;49;00m[34m0xde1[39;49;00m([31m%rip[39;49;00m),[31m%rax[39;49;00m[37m        [39;49;00m[37m# 0x555555556008[39;49;00m
-   [34m0x0000555555555227[m <+15>:	[32mmov[39;49;00m[37m    [39;49;00m[31m%rax[39;49;00m,[31m%rdi[39;49;00m[37m[39;49;00m
-   [34m0x000055555555522a[m <+18>:	[32mcall[39;49;00m[37m   [39;49;00m[34m0x555555555070[39;49;00m <[31mputs@plt[39;49;00m>[37m[39;49;00m
-   [34m0x000055555555522f[m <+23>:	[32mlea[39;49;00m[37m    [39;49;00m[34m0xe0c[39;49;00m([31m%rip[39;49;00m),[31m%rax[39;49;00m[37m        [39;49;00m[37m# 0x555555556042[39;49;00m
-   [34m0x0000555555555236[m <+30>:	[32mmov[39;49;00m[37m    [39;49;00m[31m%rax[39;49;00m,[31m%rdi[39;49;00m[37m[39;49;00m
-   [34m0x0000555555555239[m <+33>:	[32mcall[39;49;00m[37m   [39;49;00m[34m0x555555555070[39;49;00m <[31mputs@plt[39;49;00m>[37m[39;49;00m
-   [34m0x000055555555523e[m <+38>:	[32mmov[39;49;00m[37m    [39;49;00m[31m$0x0[39;49;00m,[31m%edi[39;49;00m[37m[39;49;00m
-   [34m0x0000555555555243[m <+43>:	[32mcall[39;49;00m[37m   [39;49;00m[34m0x555555555090[39;49;00m <[31mexit@plt[39;49;00m>[37m[39;49;00m
-End of assembler dump.
-[?2004h(gdb) break echo
-[?2004lBreakpoint 2 at [34m0x5555555551fd[m: file [32moflow_echo.c[m, line 31.
-[?2004h(gdb) cont
-[?2004lContinuing.
-
-Breakpoint 2, [33mecho[m () at [32moflow_echo.c[m:31
-31		[01mmygets[m[31m([mbuf[31m);[m
-[?2004h[?2004l[?2004h(gdb) pri[K[K[Krun
-[?2004l[?2004hThe program being debugged has been started already.
-Start it from the beginning? (y or n) n
-[?2004lProgram not restarted.
-[?2004h(gdb) cont
-[?2004lContinuing.
-exit
-exit
-
-Breakpoint 1, [33mmain[m () at [32moflow_echo.c[m:11
-11			[01mecho[m[31m();[m
-[?2004h[?2004l[?2004h(gdb) cont
-[?2004lContinuing.
-
-Breakpoint 2, [33mecho[m () at [32moflow_echo.c[m:31
-31		[01mmygets[m[31m([mbuf[31m);[m
-[?2004h[?2004l[?2004h(gdb) break mygets
-[?2004lBreakpoint 3 at [34m0x5555555551ad[m: file [32moflow_echo.c[m, line 18.
-[?2004h(gdb) cont
-[?2004lContinuing.
-
-Breakpoint 3, [33mmygets[m ([36mdest[m=0x7fffffffe35c "exit") at [32moflow_echo.c[m:18
-18		[32mint[m c [31m=[m [01mgetchar[m[31m();[m
-[?2004h[?2004l[?2004h(gdb) step o[Ki
-[?2004lNo symbol "i" in current context.
-[?2004h(gdb) stepi
-[?2004l[34m0x0000555555555080[m in [33mgetchar@plt[m ()
-[?2004h[?2004l[?2004h(gdb) 
-[?2004l[34m0x0000555555555084[m in [33mgetchar@plt[m ()
-[?2004h[?2004l[?2004h(gdb) print /x $rsp
-[?2004l$1 = 0x7fffffffe318
-[?2004h(gdb) 
-[?2004l$2 = 0x7fffffffe318
-[?2004h(gdb) 
-[?2004l$3 = 0x7fffffffe318
-[?2004h(gdb) disassemble mygets
-[?2004lDump of assembler code for function [33mmygets[m:
-   [34m0x000055555555519d[m <+0>:	[32mendbr64[39;49;00m[37m [39;49;00m
-   [34m0x00005555555551a1[m <+4>:	[32mpush[39;49;00m[37m   [39;49;00m[31m%rbp[39;49;00m[37m[39;49;00m
-   [34m0x00005555555551a2[m <+5>:	[32mmov[39;49;00m[37m    [39;49;00m[31m%rsp[39;49;00m,[31m%rbp[39;49;00m[37m[39;49;00m
-   [34m0x00005555555551a5[m <+8>:	[32msub[39;49;00m[37m    [39;49;00m[31m$0x20[39;49;00m,[31m%rsp[39;49;00m[37m[39;49;00m
-   [34m0x00005555555551a9[m <+12>:	[32mmov[39;49;00m[37m    [39;49;00m[31m%rdi[39;49;00m,-[34m0x18[39;49;00m([31m%rbp[39;49;00m)[37m[39;49;00m
-   [34m0x00005555555551ad[m <+16>:	[32mcall[39;49;00m[37m   [39;49;00m[34m0x555555555080[39;49;00m <[31mgetchar@plt[39;49;00m>[37m[39;49;00m
-   [34m0x00005555555551b2[m <+21>:	[32mmov[39;49;00m[37m    [39;49;00m[31m%eax[39;49;00m,-[34m0x4[39;49;00m([31m%rbp[39;49;00m)[37m[39;49;00m
-   [34m0x00005555555551b5[m <+24>:	[32mmov[39;49;00m[37m    [39;49;00m[34m-0[39;49;00m[31mx18[39;49;00m([31m%rbp[39;49;00m),[31m%rax[39;49;00m[37m[39;49;00m
-   [34m0x00005555555551b9[m <+28>:	[32mmov[39;49;00m[37m    [39;49;00m[31m%rax[39;49;00m,-[34m0x10[39;49;00m([31m%rbp[39;49;00m)[37m[39;49;00m
-   [34m0x00005555555551bd[m <+32>:	[32mjmp[39;49;00m[37m    [39;49;00m[34m0x5555555551d8[39;49;00m <[31mmygets[39;49;00m+[34m59[39;49;00m>[37m[39;49;00m
-   [34m0x00005555555551bf[m <+34>:	[32mmov[39;49;00m[37m    [39;49;00m[34m-0[39;49;00m[31mx10[39;49;00m([31m%rbp[39;49;00m),[31m%rax[39;49;00m[37m[39;49;00m
-   [34m0x00005555555551c3[m <+38>:	[32mlea[39;49;00m[37m    [39;49;00m[34m0x1[39;49;00m([31m%rax[39;49;00m),[31m%rdx[39;49;00m[37m[39;49;00m
-   [34m0x00005555555551c7[m <+42>:	[32mmov[39;49;00m[37m    [39;49;00m[31m%rdx[39;49;00m,-[34m0x10[39;49;00m([31m%rbp[39;49;00m)[37m[39;49;00m
-   [34m0x00005555555551cb[m <+46>:	[32mmov[39;49;00m[37m    [39;49;00m[34m-0[39;49;00m[31mx4[39;49;00m([31m%rbp[39;49;00m),[31m%edx[39;49;00m[37m[39;49;00m
-   [34m0x00005555555551ce[m <+49>:	[32mmov[39;49;00m[37m    [39;49;00m[31m%dl[39;49;00m,([31m%rax[39;49;00m)[37m[39;49;00m
-   [34m0x00005555555551d0[m <+51>:	[32mcall[39;49;00m[37m   [39;49;00m[34m0x555555555080[39;49;00m <[31mgetchar@plt[39;49;00m>[37m[39;49;00m
-   [34m0x00005555555551d5[m <+56>:	[32mmov[39;49;00m[37m    [39;49;00m[31m%eax[39;49;00m,-[34m0x4[39;49;00m([31m%rbp[39;49;00m)[37m[39;49;00m
-   [34m0x00005555555551d8[m <+59>:	[32mcmpl[39;49;00m[37m   [39;49;00m[31m$0xffffffff[39;49;00m,-[34m0x4[39;49;00m([31m%rbp[39;49;00m)[37m[39;49;00m
-   [34m0x00005555555551dc[m <+63>:	[32mje[39;49;00m[37m     [39;49;00m[34m0x5555555551e4[39;49;00m <[31mmygets[39;49;00m+[34m71[39;49;00m>[37m[39;49;00m
-   [34m0x00005555555551de[m <+65>:	[32mcmpl[39;49;00m[37m   [39;49;00m[31m$0xa[39;49;00m,-[34m0x4[39;49;00m([31m%rbp[39;49;00m)[37m[39;49;00m
-   [34m0x00005555555551e2[m <+69>:	[32mjne[39;49;00m[37m    [39;49;00m[34m0x5555555551bf[39;49;00m <[31mmygets[39;49;00m+[34m34[39;49;00m>[37m[39;49;00m
-   [34m0x00005555555551e4[m <+71>:	[32mmov[39;49;00m[37m    [39;49;00m[34m-0[39;49;00m[31mx10[39;49;00m([31m%rbp[39;49;00m),[31m%rax[39;49;00m[37m[39;49;00m
-   [34m0x00005555555551e8[m <+75>:	[32mmovb[39;49;00m[37m   [39;49;00m[31m$0x0[39;49;00m,([31m%rax[39;49;00m)[37m[39;49;00m
-   [34m0x00005555555551eb[m <+78>:	[32mmov[39;49;00m[37m    [39;49;00m[34m-0[39;49;00m[31mx18[39;49;00m([31m%rbp[39;49;00m),[31m%rax[39;49;00m[37m[39;49;00m
-   [34m0x00005555555551ef[m <+82>:	[32mleave[39;49;00m[37m  [39;49;00m
-   [34m0x00005555555551f0[m <+83>:	[32mret[39;49;00m[37m    [39;49;00m
-End of assembler dump.
-[?2004h(gdb) disassemble mygets[K[K[K[K[K[Kecho
-[?2004lDump of assembler code for function [33mecho[m:
-   [34m0x00005555555551f1[m <+0>:	[32mendbr64[39;49;00m[37m [39;49;00m
-   [34m0x00005555555551f5[m <+4>:	[32mpush[39;49;00m[37m   [39;49;00m[31m%rbp[39;49;00m[37m[39;49;00m
-   [34m0x00005555555551f6[m <+5>:	[32mmov[39;49;00m[37m    [39;49;00m[31m%rsp[39;49;00m,[31m%rbp[39;49;00m[37m[39;49;00m
-   [34m0x00005555555551f9[m <+8>:	[32msub[39;49;00m[37m    [39;49;00m[31m$0x10[39;49;00m,[31m%rsp[39;49;00m[37m[39;49;00m
-   [34m0x00005555555551fd[m <+12>:	[32mlea[39;49;00m[37m    [39;49;00m[34m-0[39;49;00m[31mx4[39;49;00m([31m%rbp[39;49;00m),[31m%rax[39;49;00m[37m[39;49;00m
-   [34m0x0000555555555201[m <+16>:	[32mmov[39;49;00m[37m    [39;49;00m[31m%rax[39;49;00m,[31m%rdi[39;49;00m[37m[39;49;00m
-   [34m0x0000555555555204[m <+19>:	[32mcall[39;49;00m[37m   [39;49;00m[34m0x55555555519d[39;49;00m <[31mmygets[39;49;00m>[37m[39;49;00m
-   [34m0x0000555555555209[m <+24>:	[32mlea[39;49;00m[37m    [39;49;00m[34m-0[39;49;00m[31mx4[39;49;00m([31m%rbp[39;49;00m),[31m%rax[39;49;00m[37m[39;49;00m
-   [34m0x000055555555520d[m <+28>:	[32mmov[39;49;00m[37m    [39;49;00m[31m%rax[39;49;00m,[31m%rdi[39;49;00m[37m[39;49;00m
-   [34m0x0000555555555210[m <+31>:	[32mcall[39;49;00m[37m   [39;49;00m[34m0x555555555070[39;49;00m <[31mputs@plt[39;49;00m>[37m[39;49;00m
-   [34m0x0000555555555215[m <+36>:	[32mnop[39;49;00m[37m[39;49;00m
-   [34m0x0000555555555216[m <+37>:	[32mleave[39;49;00m[37m  [39;49;00m
-   [34m0x0000555555555217[m <+38>:	[32mret[39;49;00m[37m    [39;49;00m
-End of assembler dump.
-[?2004h(gdb) print [K[K[K[K[K[Kx /9[K8gx ($rsp)
-[?2004l[34m0x7fffffffe318[m:	0x00005555555551b2	0x0000000000000000
-[34m0x7fffffffe328[m:	0x00007fffffffe35c	0x00007fffffffe488
-[34m0x7fffffffe338[m:	0x0000555555555189	0x00007fffffffe360
-[34m0x7fffffffe348[m:	0x0000555555555209	0x0000000000000000
-[?2004h(gdb) where
-[?2004l#0  [34m0x0000555555555084[m in [33mgetchar@plt[m ()
-#1  [34m0x00005555555551b2[m in [33mmygets[m ([36mdest[m=0x7fffffffe35c "exit") at [32moflow_echo.c[m:18
-#2  [34m0x0000555555555209[m in [33mecho[m () at [32moflow_echo.c[m:31
-#3  [34m0x000055555555519b[m in [33mmain[m () at [32moflow_echo.c[m:11
-Backtrace stopped: previous frame inner to this frame (corrupt stack?)
-[?2004h(gdb) dsi[K[Kisassemble main
-[?2004lDump of assembler code for function [33mmain[m:
-   [34m0x0000555555555189[m <+0>:	[32mendbr64[39;49;00m[37m [39;49;00m
-   [34m0x000055555555518d[m <+4>:	[32mpush[39;49;00m[37m   [39;49;00m[31m%rbp[39;49;00m[37m[39;49;00m
-   [34m0x000055555555518e[m <+5>:	[32mmov[39;49;00m[37m    [39;49;00m[31m%rsp[39;49;00m,[31m%rbp[39;49;00m[37m[39;49;00m
-   [34m0x0000555555555191[m <+8>:	[32mmov[39;49;00m[37m    [39;49;00m[31m$0x0[39;49;00m,[31m%eax[39;49;00m[37m[39;49;00m
-   [34m0x0000555555555196[m <+13>:	[32mcall[39;49;00m[37m   [39;49;00m[34m0x5555555551f1[39;49;00m <[31mecho[39;49;00m>[37m[39;49;00m
-   [34m0x000055555555519b[m <+18>:	[32mjmp[39;49;00m[37m    [39;49;00m[34m0x555555555191[39;49;00m <[31mmain[39;49;00m+[34m8[39;49;00m>[37m[39;49;00m
-End of assembler dump.
-[?2004h(gdb) step [Ki
-[?2004l[33mgetchar[m () at [32m./libio/getchar.c[m:34
-34	./libio/getchar.c: No such file or directory.
-[?2004h[?2004l[?2004h(gdb) stepi
-[?2004l36	in [32m./libio/getchar.c[m
-[?2004h[?2004l[?2004h(gdb) 
-[?2004l[34m0x00007ffff7e04b66[m	36	in [32m./libio/getchar.c[m
-[?2004h[?2004l[?2004h(gdb) 
-[?2004l[34m0x00007ffff7e04b67[m	36	in [32m./libio/getchar.c[m
-[?2004h[?2004l[?2004h(gdb) 
-[?2004l[34m0x00007ffff7e04b68[m	36	in [32m./libio/getchar.c[m
-[?2004h[?2004l[?2004h(gdb) 
-[?2004l[34m0x00007ffff7e04b6c[m	36	in [32m./libio/getchar.c[m
-[?2004h[?2004l[?2004h(gdb) 
-[?2004l[34m0x00007ffff7e04b73[m	36	in [32m./libio/getchar.c[m
-[?2004h[?2004l[?2004h(gdb) 
-[?2004l[34m0x00007ffff7e04b76[m	36	in [32m./libio/getchar.c[m
-[?2004h[?2004l[?2004h(gdb) 
-[?2004l[34m0x00007ffff7e04b7a[m	36	in [32m./libio/getchar.c[m
-[?2004h[?2004l[?2004h(gdb) 
-[?2004l37	in [32m./libio/getchar.c[m
-[?2004h[?2004l[?2004h(gdb) 
-[?2004l[34m0x00007ffff7e04c24[m	37	in [32m./libio/getchar.c[m
-[?2004h[?2004l[?2004h(gdb) 
-[?2004l[34m0x00007ffff7e04c28[m	37	in [32m./libio/getchar.c[m
-[?2004h[?2004l[?2004h(gdb) disassamble main
-[?2004lUndefined command: "disassamble".  Try "help".
-[?2004h(gdb) dissa[K[Kassemble main
-[?2004lDump of assembler code for function [33mmain[m:
-   [34m0x0000555555555189[m <+0>:	[32mendbr64[39;49;00m[37m [39;49;00m
-   [34m0x000055555555518d[m <+4>:	[32mpush[39;49;00m[37m   [39;49;00m[31m%rbp[39;49;00m[37m[39;49;00m
-   [34m0x000055555555518e[m <+5>:	[32mmov[39;49;00m[37m    [39;49;00m[31m%rsp[39;49;00m,[31m%rbp[39;49;00m[37m[39;49;00m
-   [34m0x0000555555555191[m <+8>:	[32mmov[39;49;00m[37m    [39;49;00m[31m$0x0[39;49;00m,[31m%eax[39;49;00m[37m[39;49;00m
-   [34m0x0000555555555196[m <+13>:	[32mcall[39;49;00m[37m   [39;49;00m[34m0x5555555551f1[39;49;00m <[31mecho[39;49;00m>[37m[39;49;00m
-   [34m0x000055555555519b[m <+18>:	[32mjmp[39;49;00m[37m    [39;49;00m[34m0x555555555191[39;49;00m <[31mmain[39;49;00m+[34m8[39;49;00m>[37m[39;49;00m
-End of assembler dump.
-[?2004h(gdb) stepi
-[?2004l[34m0x00007ffff7e04c70[m	42	in [32m./libio/getchar.c[m
-[?2004h[?2004l[?2004h(gdb) quit
-[?2004l[?2004hA debugging session is active.
-
-	Inferior 1 [process 134686] will be killed.
-
-Quit anyway? (y or n) y
-[?2004l[?2004h]0;aka271@aka271: ~/CS270/Lab2/bufdemo[01;32maka271@aka271[00m:[01;34m~/CS270/Lab2/bufdemo[00m$ exploit.txt
-[?2004lexploit.txt: command not found
-[?2004h]0;aka271@aka271: ~/CS270/Lab2/bufdemo[01;32maka271@aka271[00m:[01;34m~/CS270/Lab2/bufdemo[00m$ lsexploit.txtgdb oflow_echo[3Pexploit.txtls[K
-[?2004lMakefile  [0m[01;32mbufdemo[0m  bufdemo.c  bufdemo.s  [01;32mhex2raw[0m  mysession.txt  [01;32moflow_echo[0m  oflow_echo.c
-[?2004h]0;aka271@aka271: ~/CS270/Lab2/bufdemo[01;32maka271@aka271[00m:[01;34m~/CS270/Lab2/bufdemo[00m$ vim explout[K[Kit.txt
-[?2004l[?1049h[22;0;0t[>4;2m[?1h=[?2004h[?1004h[1;63r[?12h[?12l[22;2t[22;1t[27m[23m[29m[m[H[2J[?25l[63;1H"exploit.txt" [New][2;1H▽[6n[2;1H  [3;1HPzz\[0%m[6n[3;1H           [1;1H[>c]10;?]11;?[2;1H[94m~                                                                                                   [3;1H~                                                                                                   [4;1H~                                                                                                   [5;1H~                                                                                                   [6;1H~                                                                                                   [7;1H~                                                                                                   [8;1H~                                                                                                   [9;1H~                                                                                                   [10;1H~                                                                                                   [11;1H~                                                                                                   [12;1H~                                                                                                   [13;1H~                                                                                                   [14;1H~                                                                                                   [15;1H~                                                                                                   [16;1H~                                                                                                   [17;1H~                                                                                                   [18;1H~                                                                                                   [19;1H~                                                                                                   [20;1H~                                                                                                   [21;1H~                                                                                                   [22;1H~                                                                                                   [23;1H~                                                                                                   [24;1H~                                                                                                   [25;1H~                                                                                                   [26;1H~                                                                                                   [27;1H~                                                                                                   [28;1H~                                                                                                   [29;1H~                                                                                                   [30;1H~                                                                                                   [31;1H~                                                                                                   [32;1H~                                                                                                   [33;1H~                                                                                                   [34;1H~                                                                                                   [35;1H~                                                                                                   [36;1H~                                                                                                   [37;1H~                                                                                                   [38;1H~                                                                                                   [39;1H~                                                                                                   [40;1H~                                                                                                   [41;1H~                                                                                                   [42;1H~                                                                                                   [43;1H~                                                                                                   [44;1H~                                                                                                   [45;1H~                                                                                                   [46;1H~                                                                                                   [47;1H~                                                                                                   [48;1H~                                                                                                   [49;1H~                                                                                                   [50;1H~                                                                                                   [51;1H~                                                                                                   [52;1H~                                                                                                   [53;1H~                                                                                                   [54;1H~                                                                                                   [55;1H~                                                                                                   [56;1H~                                                                                                   [57;1H~                                                                                                   [58;1H~                                                                                                   [59;1H~                                                                                                   [60;1H~                                                                                                   [61;1H~                                                                                                   [62;1H~                                                                                                   [m[63;83H0,0-1[9CAll[1;1H[?25h[27m[23m[29m[m[H[2J[?25l[2;1H[94m~                                                                                                   [3;1H~                                                                                                   [4;1H~                                                                                                   [5;1H~                                                                                                   [6;1H~                                                                                                   [7;1H~                                                                                                   [8;1H~                                                                                                   [9;1H~                                                                                                   [10;1H~                                                                                                   [11;1H~                                                                                                   [12;1H~                                                                                                   [13;1H~                                                                                                   [14;1H~                                                                                                   [15;1H~                                                                                                   [16;1H~                                                                                                   [17;1H~                                                                                                   [18;1H~                                                                                                   [19;1H~                                                                                                   [20;1H~                                                                                                   [21;1H~                                                                                                   [22;1H~                                                                                                   [23;1H~                                                                                                   [24;1H~                                                                                                   [25;1H~                                                                                                   [26;1H~                                                                                                   [27;1H~                                                                                                   [28;1H~                                                                                                   [29;1H~                                                                                                   [30;1H~                                                                                                   [31;1H~                                                                                                   [32;1H~                                                                                                   [33;1H~                                                                                                   [34;1H~                                                                                                   [35;1H~                                                                                                   [36;1H~                                                                                                   [37;1H~                                                                                                   [38;1H~                                                                                                   [39;1H~                                                                                                   [40;1H~                                                                                                   [41;1H~                                                                                                   [42;1H~                                                                                                   [43;1H~                                                                                                   [44;1H~                                                                                                   [45;1H~                                                                                                   [46;1H~                                                                                                   [47;1H~                                                                                                   [48;1H~                                                                                                   [49;1H~                                                                                                   [50;1H~                                                                                                   [51;1H~                                                                                                   [52;1H~                                                                                                   [53;1H~                                                                                                   [54;1H~                                                                                                   [55;1H~                                                                                                   [56;1H~                                                                                                   [57;1H~                                                                                                   [58;1H~                                                                                                   [59;1H~                                                                                                   [60;1H~                                                                                                   [61;1H~                                                                                                   [62;1H~                                                                                                   [m[63;83H0,0-1[9CAll"exploit.txt" [New][1;1H[?25h[?25l[63;73H:[1;1H[63;1H[K[63;1H:[?25hq[?25l[?2004l[>4;m[23;2t[23;1t[63;1H[K[63;1H[?1004l[?2004l[?1l>[?25h[>4;m[?1049l[23;0;0t[?2004h]0;aka271@aka271: ~/CS270/Lab2/bufdemo[01;32maka271@aka271[00m:[01;34m~/CS270/Lab2/bufdemo[00m$ [7m./hex2raw < exploit.txt > exploit.raw[27m./hex2raw < exploit.txt > exploit.raw
-[?2004lbash: exploit.txt: No such file or directory
-[?2004h]0;aka271@aka271: ~/CS270/Lab2/bufdemo[01;32maka271@aka271[00m:[01;34m~/CS270/Lab2/bufdemo[00m$ emacs exploit.txt
-[?2004l[?1049h[22;0;0t[?12;25h[?1h=[H[2J[63d[K[?1l>[?12l[?25h[?1049l[23;0;0t[39;49m[?1049h[22;0;0t[?12;25h[?1h=[H[2J[62d[?25l[30m[47m-UUU:----F1  [39;49m[1m[30m[47m*scratch*   [0m[39;49m[30m[47m   All L1     (Fundamental) -----------------------------------------------[39;49m
-[A[2d[?12l[?25h[?12;25h[63d[?25lLoading /etc/emacs/site-start.d/00debian.el (source)...done[K[H
-[?12l[?25h[?12;25h[63;33H[?25l50dictionaries-common.el (source)...[H
-[?12l[?25h[?12;25h[63;9H[?25ldebian-ispell...[K[H
-[?12l[?25h[?12;25h[63;9H[?25l/var/cache/dictionaries-common/emacsen-ispell-default.el (source)...[H
-[?12l[?25h[?12;25h[63;77H[?25ldone[H
-[?12l[?25h[?12;25h[63;9H[?25ldebian-ispell...done[K[H
-[?12l[?25h[?12;25h[63;9H[?25l/var/cache/dictionaries-common/emacsen-ispell-dicts.el (source)...[H
-[?12l[?25h[?12;25h[63;75H[?25ldone[H
-[?12l[?25h[?12;25h[63;10H[?25letc/emacs/site-start.d/50dictionaries-common[6P[H
-[?12l[?25h[?12;25h[63;35H[?25lpylint.el (source)...[K[H
-[?12l[?25h[?12;25h[63;56H[?25ldone[H
-[?12l[?25h[?12;25h[63;35H[?25ltcsh.el (source)...[K[H
-[?12l[?25h[?12;25h[63;54H[?25ldone[H
-[?12l[?25h[?12;25h[>0c[?2004h[?1004h[63d[?25lFor information about GNU Emacs and the GNU system, type C-h C-a.[K[H
-[?12l[?25h[?12;25h[63d[?25l(New file)[K[H
-[?12l[?25h[?12;25h[63d[?25l(New file)[K[H[7mFile Edit Options Buffers Tools Text Help                                                           [0m[39;49m[27m
-[A
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[30m[48;5;250m-UUU:----F1  [39;49m[1m[30m[48;5;250mexploit.txt [0m[39;49m[30m[48;5;250m   All L1     (Text) ------------------------------------------------------[39;49m
-[A[2d[?12l[?25h[?12;25h[63d[K[2d[?25l0[62;6H[30m[48;5;250m**[39;49m[2;2H[?12l[?25h[?12;25h[?25l0[?12l[?25h[?12;25h[C[?25l0[?12l[?25h[?12;25h[?25l0[?12l[?25h[?12;25h[C[?25l0[?12l[?25h[?12;25h[?25l0[?12l[?25h[?12;25h[C[?25l0[?12l[?25h[?12;25h[?25l0[?12l[?25h[?12;25h[C[?25l0[?12l[?25h[?12;25h[?25l0[?12l[?25h[?12;25h	[?25l0[?12l[?25h[?12;25h[?25l0[?12l[?25h[?12;25h[C[?25l0[?12l[?25h[?12;25h[?25l0[?12l[?25h[?12;25h[C[?25l0[?12l[?25h[?12;25h[?25l0[?12l[?25h[?12;25h[62;34H[?25l[30m[48;5;250m2[39;49m[H
-
-[?12l[?25h[?12;25h[?25l0[?12l[?25h[?12;25h[?25l0[?12l[?25h[?12;25h[C[?25l0[?12l[?25h[?12;25h[?25l0[?12l[?25h[?12;25h[C[?25l0[?12l[?25h[?12;25h[?25l0[?12l[?25h[?12;25h[C[?25l0[?12l[?25h[?12;25h[?25l0[?12l[?25h[?12;25h[C[?25l0[?12l[?25h[?12;25h[?25l0[?12l[?25h[?12;25h	[?25l0[?12l[?25h[?12;25h[?25l0[?12l[?25h[?12;25h[C[?25l0[?12l[?25h[?12;25h[?25l0[?12l[?25h[?12;25h[C[?25l0[?12l[?25h[?12;25h[?25l0[?12l[?25h[?12;25h[63;1H[?25l[38;5;20mEval: [39;49m[1;33H[7mMinibuf Help[0m[39;49m[27m[63;7H[?12l[?25h[?12;25h[?25lw[?12l[?25h[?12;25h[?25lq[?12l[?25h[?12;25h[?25lEntering debugger...[3;24H[?12l[?25h[?12;25h[63;1H[K[56d[1;33H[?25l[7mDebugger Backtrace Help[0m[39;49m[27m[55;1H[38;5;236m[47m-UUU:**--F1  [39;49m[1m[38;5;236m[47mexploit.txt [0m[39;49m[38;5;236m[47m   All L2     [(Text)] ----------------------------------------------------[39;49m
-Debugger entered--Lisp error: (void-variable wq)[57;3H[4m[38;5;62meval[0m[39;49m(wq t)[58;3H[4m[38;5;62meval-expression[0m[39;49m(wq nil nil 127)[59;3H[4m[38;5;62mfuncall-interactively[0m[39;49m(eval-expression wq nil nil 127)[60;3H[4m[38;5;62mcall-interactively[0m[39;49m(eval-expression nil nil)[61;3H[4m[38;5;62mcommand-execute[0m[39;49m(eval-expression)[62;6H[30m[48;5;250m%%--F1  [39;49m[1m[30m[48;5;250m*Backtrace* [0m[39;49m[30m[48;5;250m   All L1     [(Debugger)] [39;49m[56;31H[?12l[?25h[?12;25h[63;1H[?25lBeginning of buffer[56;31H[?12l[?25h[?12;25h[63;1H[?25lAuto-saving...[K[56;31H[?12l[?25h[?12;25h[63;1H[?25lBeginning of buffer[56;31H[?12l[?25h[?12;25h[63;1H[K[62;34H[?25l[30m[48;5;250m2[39;49m[57;13H[?12l[?25h[?12;25h[62;34H[?25l[30m[48;5;250m3[39;49m[58;31H[?12l[?25h[?12;25h[62;34H[?25l[30m[48;5;250m4[39;49m[59;31H[?12l[?25h[?12;25h[62;34H[?25l[30m[48;5;250m5[39;49m[60;31H[?12l[?25h[?12;25h[62;34H[?25l[30m[48;5;250m6[39;49m[A[?12l[?25h[?12;25h[1;61r[56;1H[3M[1;63r[63;1H[?25lEnd of buffer[59;1H[K
-[K
-[K[62;29H[30m[48;5;250mBot L7[39;49m[59;1H[?12l[?25h[?12;25h
-
-
-
-[K[62;34H[?25l[30m[48;5;250m6[39;49m[58;31H[?12l[?25h[?12;25h[62;34H[?25l[30m[48;5;250m5[39;49m[57;31H[?12l[?25h[?12;25h[62;34H[?25l[30m[48;5;250m6[39;49m[58;31H[?12l[?25h[?12;25h[62;34H[?25l[30m[48;5;250m7[39;49m[59;1H[?12l[?25h[?12;25h
-
-
-
-[?25lEnd of buffer[59;1H[?12l[?25h[?12;25h
-
-
-
-[K[59d
-
-
-
-[?25lC-c[59;1H[?12l[?25h[?12;25h[63;4H[?25l-[59;1H[?12l[?25h[?12;25h[63;4H[?25l ESC[59;1H[?12l[?25h[?12;25h[63;8H[?25l-[59;1H[?12l[?25h[?12;25h[63;8H[?25l O[59;1H[?12l[?25h[?12;25h[63;10H[?25l-[59;1H[?12l[?25h[?12;25h[63;10H[?25l A[59;1H[?12l[?25h[?12;25h[63;4H[K[59;1H[63;4H[?25l-[59;1H[?12l[?25h[?12;25h[63;4H[?25l up[59;1H[?12l[?25h[?12;25h[63;7H[?25l-[59;1H[?12l[?25h[?12;25h[63;7H[K[59;1H[63;5H[?25l<up> is undefined[59;1H[?12l[?25h[?12;25h
-
-
-
-[K[62;34H[?25l[30m[48;5;250m6[39;49m[58;1H[?12l[?25h[?12;25h[62;34H[?25l[30m[48;5;250m5[39;49m[57;1H[?12l[?25h[?12;25h[62;34H[?25l[30m[48;5;250m4[39;49m[56;1H[?12l[?25h[?12;25h[1;61r[56;1H[3L[1;63r[56;1H[?25lDebugger entered--Lisp error: (void-variable wq)[K
-  [4m[38;5;62meval[0m[39;49m(wq t)[K
-  [4m[38;5;62meval-expression[0m[39;49m(wq nil nil 127)[K[62;29H[30m[48;5;250mAll L3[39;49m[58;1H[?12l[?25h[?12;25h[62;34H[?25l[30m[48;5;250m2[39;49m[57;1H[?12l[?25h[?12;25h[62;34H[?25l[30m[48;5;250m1[39;49m[56;1H[?12l[?25h[?12;25h[63d[?25lBeginning of buffer[56;1H[?12l[?25h[?12;25h[63d[K[62;34H[?25l[30m[48;5;250m2[39;49m[57;1H[?12l[?25h[?12;25h[62;34H[?25l[30m[48;5;250m3[39;49m[58;1H[?12l[?25h[?12;25h[62;34H[?25l[30m[48;5;250m4[39;49m[59;1H[?12l[?25h[?12;25h[62;34H[?25l[30m[48;5;250m5[39;49m[60;1H[?12l[?25h[?12;25h[62;34H[?25l[30m[48;5;250m6[39;49m[A[?12l[?25h[?12;25h[1;61r[56;1H[3M[1;63r[59;1H[K
-[K
-[K[62;29H[?25l[30m[48;5;250mBot L7[39;49m[59;1H[?12l[?25h[?12;25h
-
-
-
-[?25lEnd of buffer[59;1H[?12l[?25h[?12;25h
-
-
-
-[?25lNot in a stack frame[59;1H[?12l[?25h[?12;25h
-
-
-
-[?25lBack to top level[K[3;24H[?12l[?25h[?12;25h[1;33H[?25l[7mText Help              [0m[39;49m[27m[55;1H[K
-[K
-[K
-[K[62;6H[30m[48;5;250m**--F1  [39;49m[1m[30m[48;5;250mexploit.txt [0m[39;49m[30m[48;5;250m   All L2     (Text) ------[39;49m[3;24H[?12l[?25h[?12;25h[63;1H[K[62;34H[?25l[30m[48;5;250m3[39;49m[4;1H[?12l[?25h[?12;25h[?25lq[?12l[?25h[?12;25h[?25lu[?12l[?25h[?12;25h[?25li[?12l[?25h[?12;25h[?25lt[?12l[?25h[?12;25h[62;34H[?25l[30m[48;5;250m4[39;49m[5;1H[?12l[?25h[?12;25h[62;34H[?25l[30m[48;5;250m3[39;49m[4;5H[?12l[?25h[?12;25h[K[K[K[K[?25le[?12l[?25h[?12;25h[?25lx[?12l[?25h[?12;25h[?25li[?12l[?25h[?12;25h[?25lt[?12l[?25h[?12;25h[62;34H[?25l[30m[48;5;250m4[39;49m[5;1H[?12l[?25h[?12;25h[63d[?25lEnd of buffer[5;1H[?12l[?25h[?12;25h[63d[?25lAuto-saving...[5;1H[?12l[?25h[?12;25h[63d[?25lEnd of buffer[K[5;1H[?12l[?25h[?12;25h[63d[K[62;34H[?25l[30m[48;5;250m3[39;49m[4;1H[?12l[?25h[?12;25h[62;34H[?25l[30m[48;5;250m2[39;49m[H
-
-[?12l[?25h[?12;25h[62;34H[?25l[30m[48;5;250m1[39;49m[H
-[?12l[?25h[?12;25h[63d[?25lBeginning of buffer[H
-[?12l[?25h[?12;25h[63d[K[62;34H[?25l[30m[48;5;250m2[39;49m[H
-
-[?12l[?25h[?12;25h[62;34H[?25l[30m[48;5;250m3[39;49m[4;1H[?12l[?25h[?12;25h[62;34H[?25l[30m[48;5;250m4[39;49m[5;1H[?12l[?25h[?12;25h[63d[?25lEnd of buffer[5;1H[?12l[?25h[?12;25h[63d[K[62;34H[?25l[30m[48;5;250m3[39;49m[4;5H[?12l[?25h[?12;25h[K[K[K[K[?25le[?12l[?25h[?12;25h[?25lm[?12l[?25h[?12;25h[?25la[?12l[?25h[?12;25h[?25lc[?12l[?25h[?12;25h[?25ls[?12l[?25h[?12;25h[C[?25le[?12l[?25h[?12;25h[?25lx[?12l[?25h[?12;25h[?25lp[?12l[?25h[?12;25h[?25ll[?12l[?25h[?12;25h[?25lo[?12l[?25h[?12;25h[?25li[?12l[?25h[?12;25h[?25lt[?12l[?25h[?12;25h[?25l.[?12l[?25h[?12;25h[?25lt[?12l[?25h[?12;25h[?25lx[?12l[?25h[?12;25h[?25lt[?12l[?25h[?12;25h[K[K[K[K[K[K[K[K[K[63;1H[?25lAuto-saving...[4;9H[?12l[?25h[?12;25h[63;15H[?25ldone[4;9H[?12l[?25h[?12;25h[63;1H[K[4;8H[K[K[C[K[K[K[K[K[62;34H[?25l[30m[48;5;250m2[39;49m[3;24H[?12l[?25h[?12;25h[62;34H[?25l[30m[48;5;250m1[39;49m[2;24H[?12l[?25h[?12;25h	[?25l0[?12l[?25h[?12;25h[?25l0[?12l[?25h[?12;25h[C[?25l0[?12l[?25h[?12;25h[?25l0[?12l[?25h[?12;25h[62;34H[?25l[30m[48;5;250m2[39;49m[3;24H[?12l[?25h[?12;25h	[?25l0[?12l[?25h[?12;25h[?25l0[?12l[?25h[?12;25h[C[?25l0[?12l[?25h[?12;25h[?25l0[?12l[?25h[?12;25h[63;1H[?25lESC[3;30H[?12l[?25h[?12;25h[63;4H[?25l-[3;30H[?12l[?25h[?12;25h[63;4H[?25l RET[3;30H[?12l[?25h[?12;25h[63;1H[?25lM-RET is undefined[3;30H[?12l[?25h[?12;25h[63;1H[K[62;34H[?25l[30m[48;5;250m3[39;49m[4;1H[?12l[?25h[?12;25h[63d[?25lC-x[4;1H[?12l[?25h[?12;25h[63;4H[?25l-[4;1H[?12l[?25h[?12;25h[63;4H[?25l C-q[4;1H[?12l[?25h[?12;25h[63d[?25lRead-Only mode enabled in current buffer[4;1H[?12l[?25h[?12;25h[62;6H[?25l[30m[48;5;250m%[39;49m[4;1H[?12l[?25h[?12;25h[63d[K[4d[63d[?25lRead-Only mode disabled in current buffer[4;1H[?12l[?25h[?12;25h[62;6H[?25l[30m[48;5;250m*[39;49m[4;1H[?12l[?25h[?12;25h[63d[K[62;34H[?25l[30m[48;5;250m4[39;49m[5;1H[?12l[?25h[?12;25h[?25l[38;5;124m^[[39;49m[O[?12l[?25h[?12;25h[K[K[K[62;34H[?25l[30m[48;5;250m3[39;49m[4;1H[?12l[?25h[?12;25h[?25lx[?12l[?25h[?12;25h[K[63d[?25lC-q[4;1H[?12l[?25h[?12;25h[63;4H[?25l-[4;1H[?12l[?25h[?12;25h[63;4H[?25l RET[4;1H[?12l[?25h[?12;25h[?25l[38;5;124m^M[39;49m[?12l[?25h[?12;25h[63;1H[K[62;34H[?25l[30m[48;5;250m4[39;49m[5;1H[?12l[?25h[?12;25h[62;34H[?25l[30m[48;5;250m3[39;49m[4;3H[?12l[?25h[?12;25h[K[62;34H[?25l[30m[48;5;250m2[39;49m[3;30H[?12l[?25h[?12;25h[K[K[C[63;1H[?25lSaving file /home/aka271/CS270/Lab2/bufdemo/exploit.txt...[3;28H[?12l[?25h[?12;25h[63;1H[?25lWrote /home/aka271/CS270/Lab2/bufdemo/exploit.txt[K[3;28H[?12l[?25h[?12;25h[62;6H[?25l[30m[48;5;250m--[39;49m[3;28H[?12l[?25h[?12;25h[63;1H[K[3;28H[63;1H[K[?1004l[?2004l[?1l>[?12l[?25h[?1049l[23;0;0t[39;49m[?2004h]0;aka271@aka271: ~/CS270/Lab2/bufdemo[01;32maka271@aka271[00m:[01;34m~/CS270/Lab2/bufdemo[00m$ emacs exploit.txt
-[?2004l[?1049h[22;0;0t[?12;25h[?1h=[H[2J[63d[K[?1l>[?12l[?25h[?1049l[23;0;0t[39;49m[?1049h[22;0;0t[?12;25h[?1h=[H[2J[62d[?25l[30m[47m-UUU:----F1  [39;49m[1m[30m[47m*scratch*   [0m[39;49m[30m[47m   All L1     (Fundamental) -----------------------------------------------[39;49m
-[A[2d[?12l[?25h[?12;25h[63d[?25lLoading /etc/emacs/site-start.d/00debian.el (source)...done[K[H
-[?12l[?25h[?12;25h[63;33H[?25l50dictionaries-common.el (source)...[H
-[?12l[?25h[?12;25h[63;9H[?25ldebian-ispell...[K[H
-[?12l[?25h[?12;25h[63;9H[?25l/var/cache/dictionaries-common/emacsen-ispell-default.el (source)...[H
-[?12l[?25h[?12;25h[63;77H[?25ldone[H
-[?12l[?25h[?12;25h[63;9H[?25ldebian-ispell...done[K[H
-[?12l[?25h[?12;25h[63;9H[?25l/var/cache/dictionaries-common/emacsen-ispell-dicts.el (source)...[H
-[?12l[?25h[?12;25h[63;75H[?25ldone[H
-[?12l[?25h[?12;25h[63;10H[?25letc/emacs/site-start.d/50dictionaries-common[6P[H
-[?12l[?25h[?12;25h[63;35H[?25lpylint.el (source)...[K[H
-[?12l[?25h[?12;25h[63;56H[?25ldone[H
-[?12l[?25h[?12;25h[63;35H[?25ltcsh.el (source)...[K[H
-[?12l[?25h[?12;25h[63;54H[?25ldone[H
-[?12l[?25h[?12;25h[>0c[?2004h[?1004h[63d[?25lFor information about GNU Emacs and the GNU system, type C-h C-a.[K[H
-[?12l[?25h[?12;25h[63d[?25lFor information about GNU Emacs and the GNU system, type C-h C-a.[K[H[7mFile Edit Options Buffers Tools Text Help                                                           [0m[39;49m[27m
-[A
-00 00 00 00 00 00 00 00 00 00[K
-00 00 00 00 00 00 00 00 00[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[30m[48;5;250m-UU-:----F1  [39;49m[1m[30m[48;5;250mexploit.txt [0m[39;49m[30m[48;5;250m   All L1     (Text) ------------------------------------------------------[39;49m
-[A[2d[?12l[?25h[?12;25h[63d[K[62;34H[?25l[30m[48;5;250m2[39;49m[H
-
-[?12l[?25h[?12;25h[?25l[1@a[62;6H[30m[48;5;250m**[39;49m[3;2H[?12l[?25h[?12;25h[C[C[C[C[C		[C[C[C[C[C[C		[C[C[C[C[C[C		[C[C[C[K[K[C[K[K[C[K[K[C[K[K	[K[K[C[K[K[C[K[K	[K[K[C[K[K[K[?25l1[?12l[?25h[?12;25h[?25l8[?12l[?25h[?12;25h[C[?25l5[?12l[?25h[?12;25h[?25l3[?12l[?25h[?12;25h[K[?25l2[?12l[?25h[?12;25h[C[?25l5[?12l[?25h[?12;25h[?25l5[?12l[?25h[?12;25h[C[?25l5[?12l[?25h[?12;25h[?25l5[?12l[?25h[?12;25h[C[?25l5[?12l[?25h[?12;25h[?25l5[?12l[?25h[?12;25h	[?25l5[?12l[?25h[?12;25h[?25l5[?12l[?25h[?12;25h[C[?25l0[?12l[?25h[?12;25h[?25l0[?12l[?25h[?12;25h[C[?25l0[?12l[?25h[?12;25h[?25l0[?12l[?25h[?12;25h[63;1H[?25lESC[3;24H[?12l[?25h[?12;25h[63;4H[?25l-[3;24H[?12l[?25h[?12;25h[63;4H[?25l C-x[3;24H[?12l[?25h[?12;25h[63;8H[?25l-[3;24H[?12l[?25h[?12;25h[63;8H[?25l C-s[3;24H[?12l[?25h[?12;25h[63;1H[?25lC-M-x C-s is undefined[3;24H[?12l[?25h[?12;25h[63;1H[K[3;24H[63;1H[?25l[38;5;20mSave file /home/aka271/CS270/Lab2/bufdemo/exploit.txt? (y, n, !, ., q, C-r, C-f, d or C-h) [39;49m[C[?12l[?25h[?12;25h[?25lSave file /home/aka271/CS270/Lab2/bufdemo/exploit.txt? (y, n, !, ., q, C-r, C-f, d or C-h) RET	[?12l[?25h[?12;25h[K[3;24H[63;1H[?25l[38;5;20mModified buffers exist; exit anyway? (yes or no) [39;49m[1;33H[7mMinibuf Help[0m[39;49m[27m[63;50H[?12l[?25h[?12;25h[?25ly[?12l[?25h[?12;25h[?25le[?12l[?25h[?12;25h[?25ls[?12l[?25h[?12;25h[K[?1004l[?2004l[?1l>[?12l[?25h[?1049l[23;0;0t[39;49m[?2004h]0;aka271@aka271: ~/CS270/Lab2/bufdemo[01;32maka271@aka271[00m:[01;34m~/CS270/Lab2/bufdemo[00m$ run <explout[K[Kit.raw
-[?2004lbash: exploit.raw: No such file or directory
-[?2004h]0;aka271@aka271: ~/CS270/Lab2/bufdemo[01;32maka271@aka271[00m:[01;34m~/CS270/Lab2/bufdemo[00m$ [7m./hex2raw < exploit.txt > exploit.raw[27m./hex2raw < exploit.txt > exploit.raw
-[?2004l[?2004h]0;aka271@aka271: ~/CS270/Lab2/bufdemo[01;32maka271@aka271[00m:[01;34m~/CS270/Lab2/bufdemo[00m$ [7mrun < exploit.raw | head[27m[1Prun < exploit.raw | hea[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[K[Kgdb oflow
-[?2004l-[35;1mGNU gdb (Ubuntu 12.1-0ubuntu1~22.04) 12.1[m
-Copyright (C) 2022 Free Software Foundation, Inc.
-License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
-This is free software: you are free to change and redistribute it.
-There is NO WARRANTY, to the extent permitted by law.
-Type "show copying" and "show warranty" for details.
-This GDB was configured as "x86_64-linux-gnu".
-Type "show configuration" for configuration details.
-For bug reporting instructions, please see:
-<https://www.gnu.org/software/gdb/bugs/>.
-Find the GDB manual and other documentation resources online at:
-    <http://www.gnu.org/software/gdb/documentation/>.
-
-For help, type "help".
-Type "apropos word" to search for commands related to "word"...
-oflow: No such file or directory.
-[?2004h(gdb) -e[K[Kexit
-[?2004l[?2004h]0;aka271@aka271: ~/CS270/Lab2/bufdemo[01;32maka271@aka271[00m:[01;34m~/CS270/Lab2/bufdemo[00m$ gdb oflow_echo
-[?2004l[35;1mGNU gdb (Ubuntu 12.1-0ubuntu1~22.04) 12.1[m
-Copyright (C) 2022 Free Software Foundation, Inc.
-License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
-This is free software: you are free to change and redistribute it.
-There is NO WARRANTY, to the extent permitted by law.
-Type "show copying" and "show warranty" for details.
-This GDB was configured as "x86_64-linux-gnu".
-Type "show configuration" for configuration details.
-For bug reporting instructions, please see:
-<https://www.gnu.org/software/gdb/bugs/>.
-Find the GDB manual and other documentation resources online at:
-    <http://www.gnu.org/software/gdb/documentation/>.
-
-For help, type "help".
-Type "apropos word" to search for commands related to "word"...
-Reading symbols from [32moflow_echo[m...
-[?2004h(gdb) [7mrun < exploit.raw | head[27m[C[C[C[C[C[Crun < exploit.raw | head
-[?2004lStarting program: [32m/home/aka271/CS270/Lab2/bufdemo/oflow_echo[m < exploit.raw | head
-During startup program exited normally.
-[?2004h(gdb) run <exploit.raw
-[?2004lStarting program: [32m/home/aka271/CS270/Lab2/bufdemo/oflow_echo[m <exploit.raw
-[Thread debugging using libthread_db enabled]
-Using host libthread_db library "[32m/lib/x86_64-linux-gnu/libthread_db.so.1[m".
-
-
-Program received signal SIGSEGV, Segmentation fault.
-[34m0x0000000000000000[m in [33m??[m ()
-[?2004h[?2004l[?2004h(gdb) exit
-[?2004l[?2004hA debugging session is active.
-
-	Inferior 1 [process 134776] will be killed.
-
-Quit anyway? (y or n) y
-[?2004l[?2004h]0;aka271@aka271: ~/CS270/Lab2/bufdemo[01;32maka271@aka271[00m:[01;34m~/CS270/Lab2/bufdemo[00m$ gdb oflow_echo[K./hex2raw < exploit.txt > exploit.raw[21Prun <exploit.rawemacs exploit.txt
-[?2004l[?1049h[22;0;0t[?12;25h[?1h=[H[2J[63d[K[?1l>[?12l[?25h[?1049l[23;0;0t[39;49m[?1049h[22;0;0t[?12;25h[?1h=[H[2J[62d[?25l[30m[47m-UUU:----F1  [39;49m[1m[30m[47m*scratch*   [0m[39;49m[30m[47m   All L1     (Fundamental) -----------------------------------------------[39;49m
-[A[2d[?12l[?25h[?12;25h[63d[?25lLoading /etc/emacs/site-start.d/00debian.el (source)...done[K[H
-[?12l[?25h[?12;25h[63;33H[?25l50dictionaries-common.el (source)...[H
-[?12l[?25h[?12;25h[63;9H[?25ldebian-ispell...[K[H
-[?12l[?25h[?12;25h[63;9H[?25l/var/cache/dictionaries-common/emacsen-ispell-default.el (source)...[H
-[?12l[?25h[?12;25h[63;77H[?25ldone[H
-[?12l[?25h[?12;25h[63;9H[?25ldebian-ispell...done[K[H
-[?12l[?25h[?12;25h[63;9H[?25l/var/cache/dictionaries-common/emacsen-ispell-dicts.el (source)...[H
-[?12l[?25h[?12;25h[63;75H[?25ldone[H
-[?12l[?25h[?12;25h[63;10H[?25letc/emacs/site-start.d/50dictionaries-common[6P[H
-[?12l[?25h[?12;25h[63;35H[?25lpylint.el (source)...[K[H
-[?12l[?25h[?12;25h[63;56H[?25ldone[H
-[?12l[?25h[?12;25h[63;35H[?25ltcsh.el (source)...[K[H
-[?12l[?25h[?12;25h[63;54H[?25ldone[H
-[?12l[?25h[?12;25h[>0c[?2004h[?1004h[63d[?25lFor information about GNU Emacs and the GNU system, type C-h C-a.[K[H
-[?12l[?25h[?12;25h[63d[?25lexploit.txt has auto save data; consider M-x recover-this-file[K[H
-[?12l[?25h[?12;25h[63d[?25lexploit.txt has auto save data; consider M-x recover-this-file[K[H[7mFile Edit Options Buffers Tools Lisp-Interaction Help                                               [0m[39;49m[27m
-[A
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[30m[48;5;250m-UUU:----F1  [39;49m[1m[30m[48;5;250m*scratch*   [0m[39;49m[30m[48;5;250m   All L1     (Lisp Interaction ElDoc) ------------------------------------[39;49m
-[A[2d[?12l[?25h[?12;25h[63d[?25lexploit.txt has auto save data; consider M-x recover-this-file[K[H[7mFile Edit Options Buffers Tools Text Help                                                           [0m[39;49m[27m
-[A
-00 00 00 00 00 00 00 00 00 00[K
-00 00 00 00 00 00 00 00 00[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[30m[48;5;250m-UU-:----F1  [39;49m[1m[30m[48;5;250mexploit.txt [0m[39;49m[30m[48;5;250m   All L1     (Text) ------------------------------------------------------[39;49m
-[A[2d[?12l[?25h[?12;25h[63d[K[62;34H[?25l[30m[48;5;250m2[39;49m[H
-
-[?12l[?25h[?12;25h[C[C[C[C[C[C		[?25l[1@a[62;6H[30m[48;5;250m**[39;49m[3;10H[?12l[?25h[?12;25h[C[C[C[C[C		[C[C[C[C[C[C		[C[C[C[K[K[C[K[K[C[K[K[C[K[K	[K[K[C[K[K[C[K[K[K[C[K[K[C[K[K[62;34H[?25l[30m[48;5;250m1[39;49m[2;30H[?12l[?25h[?12;25h[K[K[C[C[?25l0[?12l[?25h[?12;25h[?25l0[?12l[?25h[?12;25h[62;34H[?25l[30m[48;5;250m2[39;49m[H
-
-[?12l[?25h[?12;25h[?25l1[?12l[?25h[?12;25h[?25l8[?12l[?25h[?12;25h[C[?25l5[?12l[?25h[?12;25h[?25l2[?12l[?25h[?12;25h[C[?25l5[?12l[?25h[?12;25h[?25l5[?12l[?25h[?12;25h[C[?25l5[?12l[?25h[?12;25h[?25l5[?12l[?25h[?12;25h[C[?25l5[?12l[?25h[?12;25h[?25l5[?12l[?25h[?12;25h	[?25l5[?12l[?25h[?12;25h[?25l5[?12l[?25h[?12;25h[C[?25l0[?12l[?25h[?12;25h[?25l0[?12l[?25h[?12;25h[C[?25l0[?12l[?25h[?12;25h[?25l0[?12l[?25h[?12;25h[63;1H[?25l[38;5;20mSave file /home/aka271/CS270/Lab2/bufdemo/exploit.txt? (y, n, !, ., q, C-r, C-f, d or C-h) [39;49m[C[?12l[?25h[?12;25h[?25lSave file /home/aka271/CS270/Lab2/bufdemo/exploit.txt? (y, n, !, ., q, C-r, C-f, d or C-h) â[C[?12l[?25h[?12;25h[?25lType C-h for help.[K[3;24H[?12l[?25h[?12;25h[63;1H[?25l[38;5;20mSave file /home/aka271/CS270/Lab2/bufdemo/exploit.txt? (y, n, !, ., q, C-r, C-f, d or C-h) [39;49m[C[?12l[?25h[?12;25h[?25lSave file /home/aka271/CS270/Lab2/bufdemo/exploit.txt? (y, n, !, ., q, C-r, C-f, d or C-h) [38;5;124m\211[39;49m	[?12l[?25h[?12;25h[?25lType C-h for help.[K[3;24H[?12l[?25h[?12;25h[63;1H[?25l[38;5;20mSave file /home/aka271/CS270/Lab2/bufdemo/exploit.txt? (y, n, !, ., q, C-r, C-f, d or C-h) [39;49m[C[?12l[?25h[?12;25h[?25lSave file /home/aka271/CS270/Lab2/bufdemo/exploit.txt? (y, n, !, ., q, C-r, C-f, d or C-h) [38;5;124m\210[39;49m	[?12l[?25h[?12;25h[?25lType C-h for help.[K[3;24H[?12l[?25h[?12;25h[63;1H[?25l[38;5;20mSave file /home/aka271/CS270/Lab2/bufdemo/exploit.txt? (y, n, !, ., q, C-r, C-f, d or C-h) [39;49m[C[?12l[?25h[?12;25h[?25lSave file /home/aka271/CS270/Lab2/bufdemo/exploit.txt? (y, n, !, ., q, C-r, C-f, d or C-h) ß[C[?12l[?25h[?12;25h[?25lType C-h for help.[K[3;24H[?12l[?25h[?12;25h[63;1H[?25l[38;5;20mSave file /home/aka271/CS270/Lab2/bufdemo/exploit.txt? (y, n, !, ., q, C-r, C-f, d or C-h) [39;49m[C[?12l[?25h[?12;25h[?25lSave file /home/aka271/CS270/Lab2/bufdemo/exploit.txt? (y, n, !, ., q, C-r, C-f, d or C-h) C-x	[?12l[?25h[?12;25h[?25lType C-h for help.[K[3;24H[?12l[?25h[?12;25h[63;1H[?25l[38;5;20mSave file /home/aka271/CS270/Lab2/bufdemo/exploit.txt? (y, n, !, ., q, C-r, C-f, d or C-h) [39;49m[C[?12l[?25h[?12;25h[?25lSave file /home/aka271/CS270/Lab2/bufdemo/exploit.txt? (y, n, !, ., q, C-r, C-f, d or C-h) C-s	[?12l[?25h[?12;25h[?25lType C-h for help.[K[3;24H[?12l[?25h[?12;25h[63;1H[?25l[38;5;20mSave file /home/aka271/CS270/Lab2/bufdemo/exploit.txt? (y, n, !, ., q, C-r, C-f, d or C-h) [39;49m[C[?12l[?25h[?12;25h[?25lSave file /home/aka271/CS270/Lab2/bufdemo/exploit.txt? (y, n, !, ., q, C-r, C-f, d or C-h) C-x	[?12l[?25h[?12;25h[?25lType C-h for help.[K[3;24H[?12l[?25h[?12;25h[63;1H[?25l[38;5;20mSave file /home/aka271/CS270/Lab2/bufdemo/exploit.txt? (y, n, !, ., q, C-r, C-f, d or C-h) [39;49m[C[?12l[?25h[?12;25h[?25lSave file /home/aka271/CS270/Lab2/bufdemo/exploit.txt? (y, n, !, ., q, C-r, C-f, d or C-h) C-c	[?12l[?25h[?12;25h[?25lType C-h for help.[K[3;24H[?12l[?25h[?12;25h[63;1H[?25l[38;5;20mSave file /home/aka271/CS270/Lab2/bufdemo/exploit.txt? (y, n, !, ., q, C-r, C-f, d or C-h) [39;49m[C[?12l[?25h[?12;25h[?25lSave file /home/aka271/CS270/Lab2/bufdemo/exploit.txt? (y, n, !, ., q, C-r, C-f, d or C-h) RET	[?12l[?25h[?12;25h[K[3;24H[63;1H[?25l[38;5;20mModified buffers exist; exit anyway? (yes or no) [39;49m[1;33H[7mMinibuf Help[0m[39;49m[27m[63;50H[?12l[?25h[?12;25h[?25ln[?12l[?25h[?12;25h[?25lo[?12l[?25h[?12;25h[K[1;33H[?25l[7mText Help   [0m[39;49m[27m[3;24H[?12l[?25h[?12;25h[63;1H[?25lSaving file /home/aka271/CS270/Lab2/bufdemo/exploit.txt...[3;24H[?12l[?25h[?12;25h[63;1H[?25lWrote /home/aka271/CS270/Lab2/bufdemo/exploit.txt[K[3;24H[?12l[?25h[?12;25h[62;6H[?25l[30m[48;5;250m--[39;49m[3;24H[?12l[?25h[?12;25h[63;1H[K[3;24H[63;1H[K[?1004l[?2004l[?1l>[?12l[?25h[?1049l[23;0;0t[39;49m[?2004h]0;aka271@aka271: ~/CS270/Lab2/bufdemo[01;32maka271@aka271[00m:[01;34m~/CS270/Lab2/bufdemo[00m$ emacs exploit.txt[3Pgdb oflow_echo[K_echo
-[?2004l[35;1mGNU gdb (Ubuntu 12.1-0ubuntu1~22.04) 12.1[m
-Copyright (C) 2022 Free Software Foundation, Inc.
-License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
-This is free software: you are free to change and redistribute it.
-There is NO WARRANTY, to the extent permitted by law.
-Type "show copying" and "show warranty" for details.
-This GDB was configured as "x86_64-linux-gnu".
-Type "show configuration" for configuration details.
-For bug reporting instructions, please see:
-<https://www.gnu.org/software/gdb/bugs/>.
-Find the GDB manual and other documentation resources online at:
-    <http://www.gnu.org/software/gdb/documentation/>.
-
-For help, type "help".
-Type "apropos word" to search for commands related to "word"...
-Reading symbols from [32moflow_echo[m...
-[?2004h(gdb) [7mrun < exploit.raw | head[27m[C[C[C[C[C[Crun < exploit.raw | head
-[?2004lStarting program: [32m/home/aka271/CS270/Lab2/bufdemo/oflow_echo[m < exploit.raw | head
-During startup program exited normally.
-[?2004h(gdb) run < exploit.raw | head[K[K[K[K[K[K[K[K[1Pexploit.ra[C[C[C[C[C[C[C[C[C[C[C[Cw
-[?2004lStarting program: [32m/home/aka271/CS270/Lab2/bufdemo/oflow_echo[m <exploit.raw
-[Thread debugging using libthread_db enabled]
-Using host libthread_db library "[32m/lib/x86_64-linux-gnu/libthread_db.so.1[m".
-
-
-Program received signal SIGSEGV, Segmentation fault.
-[34m0x0000000000000000[m in [33m??[m ()
-[?2004h[?2004l[?2004h(gdb) exit
-[?2004l[?2004hA debugging session is active.
-
-	Inferior 1 [process 134793] will be killed.
-
-Quit anyway? (y or n) y
-[?2004l[?2004h]0;aka271@aka271: ~/CS270/Lab2/bufdemo[01;32maka271@aka271[00m:[01;34m~/CS270/Lab2/bufdemo[00m$ gdb oflow_echoemacs exploit.txt[3Pgdb oflow_echoemacs exploit.txt
-[?2004l[?1049h[22;0;0t[?12;25h[?1h=[H[2J[63d[K[?1l>[?12l[?25h[?1049l[23;0;0t[39;49m[?1049h[22;0;0t[?12;25h[?1h=[H[2J[62d[?25l[30m[47m-UUU:----F1  [39;49m[1m[30m[47m*scratch*   [0m[39;49m[30m[47m   All L1     (Fundamental) -----------------------------------------------[39;49m
-[A[2d[?12l[?25h[?12;25h[63d[?25lLoading /etc/emacs/site-start.d/00debian.el (source)...done[K[H
-[?12l[?25h[?12;25h[63;33H[?25l50dictionaries-common.el (source)...[H
-[?12l[?25h[?12;25h[63;9H[?25ldebian-ispell...[K[H
-[?12l[?25h[?12;25h[63;9H[?25l/var/cache/dictionaries-common/emacsen-ispell-default.el (source)...[H
-[?12l[?25h[?12;25h[63;77H[?25ldone[H
-[?12l[?25h[?12;25h[63;9H[?25ldebian-ispell...done[K[H
-[?12l[?25h[?12;25h[63;9H[?25l/var/cache/dictionaries-common/emacsen-ispell-dicts.el (source)...[H
-[?12l[?25h[?12;25h[63;75H[?25ldone[H
-[?12l[?25h[?12;25h[63;10H[?25letc/emacs/site-start.d/50dictionaries-common[6P[H
-[?12l[?25h[?12;25h[63;35H[?25lpylint.el (source)...[K[H
-[?12l[?25h[?12;25h[63;56H[?25ldone[H
-[?12l[?25h[?12;25h[63;35H[?25ltcsh.el (source)...[K[H
-[?12l[?25h[?12;25h[63;54H[?25ldone[H
-[?12l[?25h[?12;25h[>0c[?2004h[?1004h[63d[?25lFor information about GNU Emacs and the GNU system, type C-h C-a.[K[H
-[?12l[?25h[?12;25h[63d[?25lFor information about GNU Emacs and the GNU system, type C-h C-a.[K[H[7mFile Edit Options Buffers Tools Text Help                                                           [0m[39;49m[27m
-[A
-00 00 00 00 00 00 00 00 00 00[K
-18 52 55 55 55 55 00 00[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[30m[48;5;250m-UU-:----F1  [39;49m[1m[30m[48;5;250mexploit.txt [0m[39;49m[30m[48;5;250m   All L1     (Text) ------------------------------------------------------[39;49m
-[A[2d[?12l[?25h[?12;25h[63d[?25lBeginning of buffer[K[H
-[?12l[?25h[?12;25h[63d[K[62;34H[?25l[30m[48;5;250m2[39;49m[H
-
-[?12l[?25h[?12;25h[62;34H[?25l[30m[48;5;250m3[39;49m[4;1H[?12l[?25h[?12;25h[63d[?25lEnd of buffer[4;1H[?12l[?25h[?12;25h[63d[K[62;34H[?25l[30m[48;5;250m2[39;49m[H
-
-[?12l[?25h[?12;25h[62;34H[?25l[30m[48;5;250m1[39;49m[H
-[?12l[?25h[?12;25h[63d[?25lBeginning of buffer[H
-[?12l[?25h[?12;25h[63d[K[2d[?25l[1@a[62;6H[30m[48;5;250m**[39;49m[2;2H[?12l[?25h[?12;25h[C[?25l[1P[?12l[?25h[?12;25h[C[C[C[C[C[C		[C[C[C[C[K
-[?25l00 00 00 00 00 00[K
-18 52 55 55 55 55 00 00[62;34H[30m[48;5;250m2[39;49m[H
-
-[?12l[?25h[?12;25h[C[C[C[C[C[C		[C[C[C[C[K
-[?25l00 00[K
-18 52 55 55 55 55 00 00[62;34H[30m[48;5;250m3[39;49m[4;1H[?12l[?25h[?12;25h[63d[?25l[38;5;20mEval: [39;49m[1;33H[7mMinibuf Help[0m[39;49m[27m[63;7H[?12l[?25h[?12;25h[?25l[38;5;20m [Text is read-only][39;49m	[?12l[?25h[?12;25h[K[?25l[38;5;20m [Command attempted to use minibuffer while in minibuffer][39;49m	[?12l[?25h[?12;25h[K	[?25l[38;5;20m [Text is read-only][39;49m	[?12l[?25h[?12;25h[?25lEnd of file during parsing[1;33H[7mText Help   [0m[39;49m[27m
-
-
-[?12l[?25h[?12;25h[1;6r[4;1H[1L[1;63r[63;1H[K[4d[K[62;34H[?25l[30m[48;5;250m4[39;49m[5;1H[?12l[?25h[?12;25h[1;6r[4;1H[1M[1;63r[6;1H[K[62;34H[?25l[30m[48;5;250m3[39;49m[4;1H[?12l[?25h[?12;25h[63d[?25lSaving file /home/aka271/CS270/Lab2/bufdemo/exploit.txt...[4;1H[?12l[?25h[?12;25h[63d[?25lWrote /home/aka271/CS270/Lab2/bufdemo/exploit.txt[K[4;1H[?12l[?25h[?12;25h[62;6H[?25l[30m[48;5;250m--[39;49m[4;1H[?12l[?25h[?12;25h[63d[K[4d[63d[K[?1004l[?2004l[?1l>[?12l[?25h[?1049l[23;0;0t[39;49m[?2004h]0;aka271@aka271: ~/CS270/Lab2/bufdemo[01;32maka271@aka271[00m:[01;34m~/CS270/Lab2/bufdemo[00m$ emacs exploit.txt[3Pgdb oflow_echoemacs exploit.txt[3Pgdb oflow_echo
-[?2004l[35;1mGNU gdb (Ubuntu 12.1-0ubuntu1~22.04) 12.1[m
-Copyright (C) 2022 Free Software Foundation, Inc.
-License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
-This is free software: you are free to change and redistribute it.
-There is NO WARRANTY, to the extent permitted by law.
-Type "show copying" and "show warranty" for details.
-This GDB was configured as "x86_64-linux-gnu".
-Type "show configuration" for configuration details.
-For bug reporting instructions, please see:
-<https://www.gnu.org/software/gdb/bugs/>.
-Find the GDB manual and other documentation resources online at:
-    <http://www.gnu.org/software/gdb/documentation/>.
-
-For help, type "help".
-Type "apropos word" to search for commands related to "word"...
-Reading symbols from [32moflow_echo[m...
-[?2004h(gdb) run <exploit.raw
-[?2004lStarting program: [32m/home/aka271/CS270/Lab2/bufdemo/oflow_echo[m <exploit.raw
-[Thread debugging using libthread_db enabled]
-Using host libthread_db library "[32m/lib/x86_64-linux-gnu/libthread_db.so.1[m".
-
-
-Program received signal SIGSEGV, Segmentation fault.
-[34m0x0000000000000000[m in [33m??[m ()
-[?2004h[?2004l[?2004h(gdb) exit
-[?2004l[?2004hA debugging session is active.
-
-	Inferior 1 [process 134804] will be killed.
-
-Quit anyway? (y or n) y
-[?2004l[?2004h]0;aka271@aka271: ~/CS270/Lab2/bufdemo[01;32maka271@aka271[00m:[01;34m~/CS270/Lab2/bufdemo[00m$ gdb oflow_echoemacs exploit.txt[3Pgdb oflow_echo
-[?2004l[35;1mGNU gdb (Ubuntu 12.1-0ubuntu1~22.04) 12.1[m
-Copyright (C) 2022 Free Software Foundation, Inc.
-License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
-This is free software: you are free to change and redistribute it.
-There is NO WARRANTY, to the extent permitted by law.
-Type "show copying" and "show warranty" for details.
-This GDB was configured as "x86_64-linux-gnu".
-Type "show configuration" for configuration details.
-For bug reporting instructions, please see:
-<https://www.gnu.org/software/gdb/bugs/>.
-Find the GDB manual and other documentation resources online at:
-    <http://www.gnu.org/software/gdb/documentation/>.
-
-For help, type "help".
-Type "apropos word" to search for commands related to "word"...
-Reading symbols from [32moflow_echo[m...
-[?2004h(gdb) run < explout.[K[K[Kit.raw \[K| head
-[?2004lStarting program: [32m/home/aka271/CS270/Lab2/bufdemo/oflow_echo[m < exploit.raw | head
-During startup program exited normally.
-[?2004h(gdb) 
-[?2004l[?2004h(gdb) exit
-[?2004l[?2004h]0;aka271@aka271: ~/CS270/Lab2/bufdemo[01;32maka271@aka271[00m:[01;34m~/CS270/Lab2/bufdemo[00m$ gdb oflow_echoemacs exploit.txt
-[?2004l[?1049h[22;0;0t[?12;25h[?1h=[H[2J[63d[K[?1l>[?12l[?25h[?1049l[23;0;0t[39;49m[?1049h[22;0;0t[?12;25h[?1h=[H[2J[62d[?25l[30m[47m-UUU:----F1  [39;49m[1m[30m[47m*scratch*   [0m[39;49m[30m[47m   All L1     (Fundamental) -----------------------------------------------[39;49m
-[A[2d[?12l[?25h[?12;25h[63d[?25lLoading /etc/emacs/site-start.d/00debian.el (source)...done[K[H
-[?12l[?25h[?12;25h[63;33H[?25l50dictionaries-common.el (source)...[H
-[?12l[?25h[?12;25h[63;9H[?25ldebian-ispell...[K[H
-[?12l[?25h[?12;25h[63;9H[?25l/var/cache/dictionaries-common/emacsen-ispell-default.el (source)...[H
-[?12l[?25h[?12;25h[63;77H[?25ldone[H
-[?12l[?25h[?12;25h[63;9H[?25ldebian-ispell...done[K[H
-[?12l[?25h[?12;25h[63;9H[?25l/var/cache/dictionaries-common/emacsen-ispell-dicts.el (source)...[H
-[?12l[?25h[?12;25h[63;75H[?25ldone[H
-[?12l[?25h[?12;25h[63;10H[?25letc/emacs/site-start.d/50dictionaries-common[6P[H
-[?12l[?25h[?12;25h[63;35H[?25lpylint.el (source)...[K[H
-[?12l[?25h[?12;25h[63;56H[?25ldone[H
-[?12l[?25h[?12;25h[63;35H[?25ltcsh.el (source)...[K[H
-[?12l[?25h[?12;25h[63;54H[?25ldone[H
-[?12l[?25h[?12;25h[>0c[?2004h[?1004h[63d[?25lFor information about GNU Emacs and the GNU system, type C-h C-a.[K[H
-[?12l[?25h[?12;25h[63d[?25lFor information about GNU Emacs and the GNU system, type C-h C-a.[K[H[7mFile Edit Options Buffers Tools Text Help                                                           [0m[39;49m[27m
-[A
-00 00 00 00[K
-00 00 00 00[K
-00 00[K
-18 52 55 55 55 55 00 00[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[K
-[30m[48;5;250m-UU-:----F1  [39;49m[1m[30m[48;5;250mexploit.txt [0m[39;49m[30m[48;5;250m   All L1     (Text) ------------------------------------------------------[39;49m
-[A[2d[?12l[?25h[?12;25h[63d[K[62;34H[?25l[30m[48;5;250m2[39;49m[H
-
-[?12l[?25h[?12;25h[62;34H[?25l[30m[48;5;250m3[39;49m[4;1H[?12l[?25h[?12;25h[62;34H[?25l[30m[48;5;250m4[39;49m[5;1H[?12l[?25h[?12;25h[62;34H[?25l[30m[48;5;250m5[39;49m[6;1H[?12l[?25h[?12;25h[63d[?25lEnd of buffer[6;1H[?12l[?25h[?12;25h[63d[K[62;34H[?25l[30m[48;5;250m4[39;49m[5;1H[?12l[?25h[?12;25h[C[C[C[62;34H[?25l[30m[48;5;250m5[39;49m[6;1H[?12l[?25h[?12;25h[62;34H[?25l[30m[48;5;250m4[39;49m[5;4H[?12l[?25h[?12;25h[62;34H[?25l[30m[48;5;250m5[39;49m[6;1H[?12l[?25h[?12;25h[62;34H[?25l[30m[48;5;250m4[39;49m[5;4H[?12l[?25h[?12;25h[62;34H[?25l[30m[48;5;250m3[39;49m[4;4H[?12l[?25h[?12;25h[C[C[62;34H[?25l[30m[48;5;250m4[39;49m[5;1H[?12l[?25h[?12;25h[62;34H[?25l[30m[48;5;250m3[39;49m[4;1H[?12l[?25h[?12;25h[1@[62;6H[?25l[30m[48;5;250m**[39;49m[4;2H[?12l[?25h[?12;25h[C[C[?25l0 00[?12l[?25h[?12;25h[C[?25l0 00[?12l[?25h[?12;25h[?25l 0 00[?12l[?25h[?12;25h[C[?25l0 00[?12l[?25h[?12;25h	[?25l0 00[?12l[?25h[?12;25h[?25l 0 00	[?12l[?25h[?12;25h	[C[C[?25l00[K[?12l[?25h[?12;25h[1P[C[C[?25l 0 00 000[4;4H[?12l[?25h[?12;25h[C[C[?25l00 000[K[4;5H[?12l[?25h[?12;25h[C[C[62;34H[?25l[30m[48;5;250m4[39;49m[5;7H[?12l[?25h[?12;25h[62;34H[?25l[30m[48;5;250m3[39;49m[4;6H[?12l[?25h[?12;25h[3;12H[?25l00 000 000
-18 52 55 55 55 55 00 00
-[K[62;34H[30m[48;5;250m2[39;49m[3;12H[?12l[?25h[?12;25h[C[?25l 000 000[K[3;11H[?12l[?25h[?12;25h[C[?25l 000 000[K[3;10H[?12l[?25h[?12;25h[?25l[1P[?12l[?25h[?12;25h[C[?25l 000 000[K	[?12l[?25h[?12;25h	[?25l 000 000[K[3;7H[?12l[?25h[?12;25h[?25l[1P[?12l[?25h[?12;25h[C[?25l 000 000[K[3;5H[?12l[?25h[?12;25h[C[?25l 000 000[K[3;4H[?12l[?25h[?12;25h[?25l[1P[?12l[?25h[?12;25h[C[?25l 000 000[K[C[?12l[?25h[?12;25h[C[?25l 000 000[K[?12l[?25h[?12;25h[2;12H[?25l00 000 000
-18 52 55 55 55 55 00 00
-[K[62;34H[30m[48;5;250m1[39;49m[2;12H[?12l[?25h[?12;25h[C[?25l[1@ [?12l[?25h[?12;25h[C[C		[?25l 00 000[?12l[?25h[?12;25h[?25l0 00 000[2;18H[?12l[?25h[?12;25h[C[C[C[C[C	[?25l 0[?12l[?25h[?12;25h[C[?25l0[?12l[?25h[?12;25h[C[C[?25l0[?12l[?25h[?12;25h[?25l0[?12l[?25h[?12;25h[C[?25l0[?12l[?25h[?12;25h[?25l0[?12l[?25h[?12;25h[C[?25l0[?12l[?25h[?12;25h[?25l0[?12l[?25h[?12;25h[62;34H[?25l[30m[48;5;250m2[39;49m[3;24H[?12l[?25h[?12;25h[63;1H[?25lSaving file /home/aka271/CS270/Lab2/bufdemo/exploit.txt...[3;24H[?12l[?25h[?12;25h[63;1H[?25lWrote /home/aka271/CS270/Lab2/bufdemo/exploit.txt[K[3;24H[?12l[?25h[?12;25h[62;6H[?25l[30m[48;5;250m--[39;49m[3;24H[?12l[?25h[?12;25h[63;1H[K[3;24H[63;1H[K[?1004l[?2004l[?1l>[?12l[?25h[?1049l[23;0;0t[39;49m[?2004h]0;aka271@aka271: ~/CS270/Lab2/bufdemo[01;32maka271@aka271[00m:[01;34m~/CS270/Lab2/bufdemo[00m$ emacs exploit.txt[3Pgdb oflow_echoemacs exploit.txt[3Pgdb oflow_echo
-[?2004l[35;1mGNU gdb (Ubuntu 12.1-0ubuntu1~22.04) 12.1[m
-Copyright (C) 2022 Free Software Foundation, Inc.
-License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
-This is free software: you are free to change and redistribute it.
-There is NO WARRANTY, to the extent permitted by law.
-Type "show copying" and "show warranty" for details.
-This GDB was configured as "x86_64-linux-gnu".
-Type "show configuration" for configuration details.
-For bug reporting instructions, please see:
-<https://www.gnu.org/software/gdb/bugs/>.
-Find the GDB manual and other documentation resources online at:
-    <http://www.gnu.org/software/gdb/documentation/>.
-
-For help, type "help".
-Type "apropos word" to search for commands related to "word"...
-Reading symbols from [32moflow_echo[m...
-[?2004h(gdb) [7mrun < exploit.raw | head[27m
-[A[C[C[C[C[C[Crun < exploit.raw | head
-[A
-[?2004lStarting program: [32m/home/aka271/CS270/Lab2/bufdemo/oflow_echo[m < exploit.raw | head
-
-During startup program exited normally.
-[?2004h(gdb) exit
-[?2004l[?2004h]0;aka271@aka271: ~/CS270/Lab2/bufdemo[01;32maka271@aka271[00m:[01;34m~/CS270/Lab2/bufdemo[00m$ [7m./hex2raw < exploit.txt > exploit.raw[27m./hex2raw < exploit.txt > exploit.raw
-[?2004l[?2004h]0;aka271@aka271: ~/CS270/Lab2/bufdemo[01;32maka271@aka271[00m:[01;34m~/CS270/Lab2/bufdemo[00m$ ./hex2raw < exploit.txt > exploit.raw[23Pgdb oflow_echo
-[?2004l[35;1mGNU gdb (Ubuntu 12.1-0ubuntu1~22.04) 12.1[m
-Copyright (C) 2022 Free Software Foundation, Inc.
-License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
-This is free software: you are free to change and redistribute it.
-There is NO WARRANTY, to the extent permitted by law.
-Type "show copying" and "show warranty" for details.
-This GDB was configured as "x86_64-linux-gnu".
-Type "show configuration" for configuration details.
-For bug reporting instructions, please see:
-<https://www.gnu.org/software/gdb/bugs/>.
-Find the GDB manual and other documentation resources online at:
-    <http://www.gnu.org/software/gdb/documentation/>.
-
-For help, type "help".
-Type "apropos word" to search for commands related to "word"...
-Reading symbols from [32moflow_echo[m...
-[?2004h(gdb) [7mrun < exploit.raw | head[27m[C[C[C[C[C[Crun < exploit.raw | head
-[?2004lStarting program: [32m/home/aka271/CS270/Lab2/bufdemo/oflow_echo[m < exploit.raw | head
-
-This routine is never called, but you managed to call it.
-Congratulations!
-During startup program exited normally.
-[?2004h(gdb) exit
-[?2004l[?2004h]0;aka271@aka271: ~/CS270/Lab2/bufdemo[01;32maka271@aka271[00m:[01;34m~/CS270/Lab2/bufdemo[00m$ exit
-[?2004lexit
-
-Script done on 2023-02-10 16:09:40-05:00 [COMMAND_EXIT_CODE="0"]
